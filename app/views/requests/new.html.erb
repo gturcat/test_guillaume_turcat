@@ -1,0 +1,14 @@
+<div class="banner">
+  <div class="container">
+    <h1>Rejoingnez le meilleur <strong>cowork</strong> de <strong>France</strong>!</h1>
+    <p>Merci de saisir les informations ci dessous pour vous insrcire sur la liste d'attente d'amdission.</p>
+    <div class="form-container">
+      <%= simple_form_for @request do |f| %>
+        <%= f.input :name %>
+        <%= f.input :email %>
+        <%= f.input :phone_number %>
+        <%= f.input :bio %>
+  <button type="submit" class="btn btn-primary">Valider</button>
+  <% end %>
+  </div>
+</div>
