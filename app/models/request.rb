@@ -13,17 +13,16 @@ class Request < ApplicationRecord
 
   after_create :send_confirmation_email
 
-  after_commit :add_ranking
-
+  after_save :add_ranking
 
   private
 
   def send_confirmation_email
-      RequestMailer.with(request: self).confirmation.deliver_now
+    RequestMailer.with(request: self).confirmation.deliver_now
   end
 
   def add_ranking
-      raises
+      self.ranking = 1
   end
 
 end
