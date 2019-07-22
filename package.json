@@ -2,12 +2,12 @@
   "name": "test_guillaume_turcat",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^4.0.7",
+    "@rails/webpacker": "3.5",
     "bootstrap": "^4.3.1",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.7.2"
+    "webpack-dev-server": "2.11.2"
   }
 }
