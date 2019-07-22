@@ -1,0 +1,5 @@
+<h1>Bonjour M. <%= @request.name %> </h1>
+
+<p>
+Cliquez ci-dessous pour confirmer votre adresse email :<%= link_to  @request.email,confirmation_request_url(@request) %>
+</p>

@@ -1,0 +1,11 @@
+<h1>M. <%= @request.name %></h1>
+
+<% if @request.unconfirmed? %>
+
+  <p>Vous allez maintenant recevoir un mail à l'adresse <%= @request.email %> vous demandant de valider cette adresse email</p>
+
+  <% elsif @request.confirmed? %>
+
+  <p>Vous allez binetôt recevoir un mail à l'adresse <%= @request.email %> vous indiquant votre rang dans la liste d'attente</p>
+
+<% end %>
