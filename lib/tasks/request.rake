@@ -1,7 +1,7 @@
 namespace :request do
-  desc "Send reconfirmation mai"
+  desc "Send reconfirmation mail"
   task confirm_again: :environment do
-    requests = Request.old
+    requests = Request.confirmed.merge(Request.old)
     requests.each do |request|
       RequestMailer.with(request: request).reconfirmation.deliver_now
     end
@@ -12,7 +12,7 @@ namespace :request do
   desc "Send reconfirmation mai"
   task expired_request: :environment do
     # selection des request acceptee qui ont besoin d'être expired
-    requests = Request.accepted.merge(Request.need_to_expired)
+    requests = Request.confirmed.merge(Request.need_to_expired)
     requests.each do |request|
       puts "#{request.id} expired"
       # toutes les requetes dont les rang sont superieur à la request supprimee gagne un place
