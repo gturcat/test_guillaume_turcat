@@ -1,14 +1,21 @@
-<div class="banner">
-  <div class="container">
-    <h1>Rejoingnez le meilleur <strong>cowork</strong> de <strong>France</strong>!</h1>
-    <p>Merci de saisir les informations ci dessous pour vous insrcire sur la liste d'attente d'amdission.</p>
-    <div class="form-container">
-      <%= simple_form_for @request do |f| %>
-        <%= f.input :name %>
-        <%= f.input :email %>
-        <%= f.input :phone_number %>
-        <%= f.input :bio %>
-  <button type="submit" class="btn btn-primary">Valider</button>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="banner" style="background-image: url(https://dpwugnmezfetv.cloudfront.net/uploads/listing_photo/36344/538aa53575feb24c0c2142e0f7ecab15.jpg);">
+      </div>
+      <div class="container add-padding">
+        <h1>Allier <strong>Confort</strong> et <strong>Productivité</strong>!</h1>
+        <p>Merci de saisir le formulaire d'inscription de notre espace de coworking.</p>
+      </div>
+    </div>
+  <div class="col-12 col-lg-4">
+    <%= simple_form_for @request do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+    <%= f.input :bio %>
+    <button type="submit" class="btn btn-primary">Valider</button>
+    <% end %>
   </div>
+</div>
 </div>

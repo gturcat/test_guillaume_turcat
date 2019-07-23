@@ -14,9 +14,15 @@ class Request < ApplicationRecord
   scope :old, -> { where("date_status < ?", 3.months.ago) }
   scope :need_to_expired, -> { where("date_status < ?", 67.days.ago) }
   scope :redorder_ranking, -> (ranking){ where("ranking > ?", ranking) }
+  scope :first_in, -> {where("date_status = ?", Request.minimum('date_status')).take}
 
   after_create :send_confirmation_email
   after_commit :Add_ranking
+
+  def self.accept!
+    request = Request.confirmed.first_in
+    request.accepted! if request.present?
+  end
 
   private
 
@@ -27,7 +33,7 @@ class Request < ApplicationRecord
   def Add_ranking
     if self.ranking.nil?
       max_ranking = Request.maximum('ranking').to_i
-       if self.accepted?
+       if self.confirmed?
         self.ranking = max_ranking + 1
         self.date_status = Date.today
         self.save

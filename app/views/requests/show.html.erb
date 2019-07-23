@@ -1,6 +1,11 @@
-<h1>M. <%= @request.name %></h1>
-
-<% if @request.unconfirmed? %>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="banner" style="background-image: url(https://dpwugnmezfetv.cloudfront.net/uploads/listing_photo/36344/538aa53575feb24c0c2142e0f7ecab15.jpg);">
+      </div>
+      <div class="container add-padding">
+        <h4>M. <%= @request.name %></h4>
+        <p><% if @request.unconfirmed? %>
 
   <p>Vous allez maintenant recevoir un mail à l'adresse <%= @request.email %> vous demandant de valider cette adresse email</p>
 
@@ -8,4 +13,29 @@
 
   <p>Vous allez binetôt recevoir un mail à l'adresse <%= @request.email %> vous indiquant votre rang dans la liste d'attente</p>
 
-<% end %>
+  <% elsif @request.acceped? %>
+
+  <p>Félicitation, vous êtres aujourd'hui membre de notre espace de coworking</p>
+
+  <% elsif @request.expired? %>
+
+  <p>Nous regrettons que votre patience ait ateint ses limites</p>
+
+<% end %></p>
+      </div>
+    </div>
+  <div class="col-12 col-lg-4">
+    Statut de votre demande :
+    <ul>
+      <li>Nom :<%= @request.name %></li>
+      <li>Adresse email :<%= @request.email %></li>
+      <li>Téléphone :<%=  @request.phone_number %></li>
+      <li>Bio : <%= @request.bio %></li>
+    </ul>
+
+  </div>
+</div>
+</div>
+
+
+
