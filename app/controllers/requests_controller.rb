@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:new, :create, :show, :confirmation]
+  skip_before_action :authenticate_user!, only: [:new, :create, :show, :confirmation, :reconfirmation]
 
   def new
     @request = Request.new
@@ -23,6 +23,13 @@ class RequestsController < ApplicationController
   def confirmation
     @request = Request.find(params[:id])
     @request.confirmed!
+    redirect_to request_path(@request)
+  end
+
+  def reconfirmation
+    @request = Request.find(params[:id])
+    @request.date_status = Date.today
+    @request.save
     redirect_to request_path(@request)
   end
 

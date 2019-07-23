@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :requests, only: [:new, :create, :show] do
     member do
       get 'confirmation'
+      get 'reconfirmation'
     end
   end
 end

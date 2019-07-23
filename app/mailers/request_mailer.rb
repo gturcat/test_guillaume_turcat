@@ -12,7 +12,17 @@ class RequestMailer < ApplicationMailer
 
  def ranking
     @request = params[:request] # Instance variable => available in view
-    mail(to: @request.email, subject: 'Your Ranking')
+    mail(to: @request.email, subject: 'Votre place dans la list d attente')
+  end
+
+  def reconfirmation
+    @request = params[:request] # Instance variable => available in view
+    mail(to: @request.email, subject: 'Merci de confirmer votre intention de nous rejoindre')
+  end
+
+def confirm_expired
+    @request = params[:request] # Instance variable => available in view
+    mail(to: @request.email, subject: 'Vous avez été retirer de la liste d attente')
   end
 
 end
