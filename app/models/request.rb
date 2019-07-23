@@ -12,8 +12,7 @@ class Request < ApplicationRecord
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
   after_create :send_confirmation_email
-
-  after_save :add_ranking
+  after_commit :Add_ranking
 
   private
 
@@ -21,8 +20,12 @@ class Request < ApplicationRecord
     RequestMailer.with(request: self).confirmation.deliver_now
   end
 
-  def add_ranking
-      self.ranking = 1
+  def Add_ranking
+      max_ranking = Request.maximum('ranking').to_i
+       if (self.accepted? && self.ranking.nil?)
+        self.ranking = max_ranking + 1
+      end
+      RequestMailer.with(request: self).ranking.deliver_now if self.accepted?
   end
 
 end
