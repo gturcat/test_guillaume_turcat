@@ -11,7 +11,7 @@ class Request < ApplicationRecord
 
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
-  scope :old, -> { where("date_status < ?", 60.days.ago) }
+  scope :old, -> { where("date_status < ?", 3.months.ago) }
   scope :need_to_expired, -> { where("date_status < ?", 67.days.ago) }
   scope :redorder_ranking, -> (ranking){ where("ranking > ?", ranking) }
 
