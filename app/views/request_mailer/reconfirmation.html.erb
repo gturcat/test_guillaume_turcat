@@ -1,5 +1,13 @@
 <h1>Bonjour M. <%= @request.name %> </h1>
 
 <p>
-Cliquez ci-dessous pour confirmer votre besoin de cowork :<%= link_to 'toujours interessé', reconfirmation_request_url(@request) %>
+Cela fait maintenant 3 mois que vous êtes sur liste d'attente. <br>
+Si malgré cette longue attente, vous etes toujours intéressé pour nous rejoindre, merci  de cliquez sur <%= link_to 'confirmer', reconfirmation_request_url(@request) %>. <br>
+Place sur la liste d'attente :<%= @request.ranking %> <br>
+
+Si dans 7 jours, vous n'avez pas confirmer votre intéret, vous serez supprimé de la liste d'attente automatiquement
 </p>
+
+<p>Salutations,</p>
+
+<p>Espace de coworking</p>
