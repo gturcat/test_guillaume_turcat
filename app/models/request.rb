@@ -11,6 +11,10 @@ class Request < ApplicationRecord
 
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
+  scope :old, -> { where("date_status < ?", 60.days.ago) }
+  scope :need_to_expired, -> { where("date_status < ?", 67.days.ago) }
+  scope :redorder_ranking, -> (ranking){ where("ranking > ?", ranking) }
+
   after_create :send_confirmation_email
   after_commit :Add_ranking
 
@@ -21,11 +25,14 @@ class Request < ApplicationRecord
   end
 
   def Add_ranking
+    if self.ranking.nil?
       max_ranking = Request.maximum('ranking').to_i
-       if (self.accepted? && self.ranking.nil?)
+       if self.accepted?
         self.ranking = max_ranking + 1
+        self.date_status = Date.today
+        self.save
+        RequestMailer.with(request: self).ranking.deliver_now
       end
-      RequestMailer.with(request: self).ranking.deliver_now if self.accepted?
+    end
   end
-
 end
