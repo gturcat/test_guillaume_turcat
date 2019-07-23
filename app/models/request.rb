@@ -22,7 +22,7 @@ class Request < ApplicationRecord
 
   def Add_ranking
       max_ranking = Request.maximum('ranking').to_i
-      if (self.accepted? && self.ranking.nil?)
+       if (self.accepted? && self.ranking.nil?)
         self.ranking = max_ranking + 1
       end
       RequestMailer.with(request: self).ranking.deliver_now if self.accepted?
