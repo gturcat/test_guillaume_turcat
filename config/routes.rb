@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'requests#new'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+   # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   resources :requests, only: [:new, :create, :show] do
     member do
       get 'confirmation'

@@ -3,7 +3,7 @@ namespace :request do
   task confirm_again: :environment do
     requests = Request.confirmed.merge(Request.old)
     requests.each do |request|
-      RequestMailer.with(request: request).reconfirmation.deliver_now
+      RequestMailer.with(request: request).reconfirmation.deliver_later
     end
   end
 end
@@ -28,7 +28,7 @@ namespace :request do
         request.ranking -= 1
         request.save
       end
-      RequestMailer.with(request: request).confirm_expired.deliver_now
+      RequestMailer.with(request: request).confirm_expired.deliver_later
     end
   end
 end
