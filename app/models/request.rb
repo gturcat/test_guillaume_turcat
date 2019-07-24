@@ -36,6 +36,7 @@ def self.accept!(nbre)
         request.ranking -= 1
         request.save
       end
+      RequestMailer.with(request: request).admission.deliver_now
     end
   end
 

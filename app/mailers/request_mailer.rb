@@ -25,4 +25,9 @@ def confirm_expired
     mail(to: @request.email, subject: 'Vous avez été retirer de la liste d attente')
   end
 
+def admission
+    @request = params[:request] # Instance variable => available in view
+    mail(to: @request.email, subject: 'Welcom aboard')
+  end
+
 end

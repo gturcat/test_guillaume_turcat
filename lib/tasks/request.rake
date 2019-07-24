@@ -28,7 +28,6 @@ namespace :request do
         request.ranking -= 1
         request.save
       end
-
       RequestMailer.with(request: request).confirm_expired.deliver_now
     end
   end
