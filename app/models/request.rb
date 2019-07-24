@@ -36,7 +36,7 @@ def self.accept!(nbre)
         request.ranking -= 1
         request.save
       end
-      RequestMailer.with(request: request).admission.deliver_now
+      RequestMailer.with(request: request).admission.deliver_later
     end
   end
 
@@ -44,7 +44,7 @@ def self.accept!(nbre)
 
 
   def send_confirmation_email
-    RequestMailer.with(request: self).confirmation.deliver_now
+    RequestMailer.with(request: self).confirmation.deliver_later
   end
 
   def Add_ranking
@@ -54,7 +54,7 @@ def self.accept!(nbre)
         self.ranking = max_ranking + 1
         self.date_status = Date.today
         self.save
-        RequestMailer.with(request: self).ranking.deliver_now
+        RequestMailer.with(request: self).ranking.deliver_later
       end
     end
   end
