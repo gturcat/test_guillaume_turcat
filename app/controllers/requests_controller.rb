@@ -1,6 +1,8 @@
 class RequestsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:new, :create, :show, :confirmation, :reconfirmation]
 
+
+
   def new
     @request = Request.new
   end
@@ -32,6 +34,7 @@ class RequestsController < ApplicationController
     @request.save
     redirect_to request_path(@request)
   end
+
 
   private
 
