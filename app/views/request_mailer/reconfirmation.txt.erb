@@ -1,0 +1,13 @@
+Bonjour M. <%= @request.name %>
+
+Cela fait maintenant 3 mois que vous êtes sur liste d'attente.
+Si malgré cette longue periode sans nouvelle, vous etes toujours intéressés pour nous rejoindre, merci  de cliquez sur <%= link_to 'confirmer', reconfirmation_request_url(@request) %>.
+
+Rappel de votre place sur liste d'attente :<%= @request.ranking %>
+
+Si dans 7 jours, vous n'avez pas confirmer votre intéret, vous serez supprimés de la liste d'attente automatiquement.
+
+
+Salutations,
+
+l'espace de coworking.

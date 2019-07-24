@@ -9,23 +9,27 @@ namespace :request do
 end
 
 namespace :request do
-  desc "Send reconfirmation mai"
+  desc "expired request"
   task expired_request: :environment do
-    # selection des request acceptee qui ont besoin d'être expired
+    # selection des requests qui ont besoin d'être expired
     requests = Request.confirmed.merge(Request.need_to_expired)
+    i = 0
     requests.each do |request|
-      puts "#{request.id} expired"
-      # toutes les requetes dont les rang sont superieur à la request supprimee gagne un place
-      ranking = request.ranking
-      request_reranking = Request.redorder_ranking(ranking)
-      request_reranking.each do |request|
+      #suppression du ranking"
+      # le ranking est corrige (bug non resolu)
+      i == 0 ? ranking = request.ranking : ranking = request.ranking.to_i - i
+      request.expired!
+      request.ranking = 0
+      request.save
+      i += 1
+      # toutes les requetes dont les rangs sont superieur à la request supprimee gagnent une place
+      requests_reranking = Request.redorder_ranking(ranking)
+      requests_reranking.each do |request|
         request.ranking -= 1
         request.save
-        RequestMailer.with(request: request).confirm_expired.deliver_now
       end
-      #suppression du ranking"
-      request.ranking = nil
-      request.expired!
+
+      RequestMailer.with(request: request).confirm_expired.deliver_now
     end
   end
 end
