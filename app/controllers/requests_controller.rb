@@ -33,8 +33,6 @@ class RequestsController < ApplicationController
     redirect_to request_path(@request)
   end
 
-
-
   private
 
   def request_params

@@ -21,10 +21,20 @@ class Request < ApplicationRecord
 
   def self.accept!
     request = Request.confirmed.first_in
+    # toutes les requetes dont les rang sont superieur à la request supprimee gagne un place
+    request_reranking = Request.redorder_ranking(request.ranking)
+    request_reranking.each do |request|
+      request.ranking -= 1
+      request.save
+    end
     request.accepted! if request.present?
+    #suppression du ranking"
+    request.ranking = nil
+    request.save
   end
 
   private
+
 
   def send_confirmation_email
     RequestMailer.with(request: self).confirmation.deliver_now
