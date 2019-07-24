@@ -15,9 +15,9 @@ namespace :request do
     requests = Request.confirmed.merge(Request.need_to_expired)
     i = 0
     requests.each do |request|
-      #suppression du ranking"
       # le ranking est corrige (bug non resolu)
       i == 0 ? ranking = request.ranking : ranking = request.ranking.to_i - i
+      # suppression du ranking"
       request.expired!
       request.ranking = 0
       request.save

@@ -12,25 +12,31 @@ class Request < ApplicationRecord
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
   scope :old, -> { where("date_status < ?", 3.months.ago) }
-  scope :need_to_expired, -> { where("date_status < ?", 67.days.ago) }
+  scope :need_to_expired, -> { where("ranking < ?", 67.days.ago) }
   scope :redorder_ranking, -> (ranking){ where("ranking > ?", ranking) }
-  scope :first_in, -> {where("date_status = ?", Request.minimum('date_status')).take}
+  scope :first_in, -> (nbre) {where("ranking <= ?", nbre) }
 
   after_create :send_confirmation_email
   after_commit :Add_ranking
 
-  def self.accept!
-    request = Request.confirmed.first_in
-    # toutes les requetes dont les rang sont superieur à la request supprimee gagne un place
-    request_reranking = Request.redorder_ranking(request.ranking)
-    request_reranking.each do |request|
-      request.ranking -= 1
+def self.accept!(nbre)
+    requests = Request.confirmed.first_in(nbre)
+    i = 0
+    requests.each do |request|
+      # le ranking est corrige (bug non resolu)
+      i == 0 ? ranking = request.ranking : ranking = request.ranking.to_i - i
+      #suppression du ranking"
+      request.accepted!
+      request.ranking = 0
       request.save
+      i += 1
+      # toutes les requetes dont les rangs sont superieur à la request supprimee gagnent une place
+      requests_reranking = Request.redorder_ranking(ranking)
+      requests_reranking.each do |request|
+        request.ranking -= 1
+        request.save
+      end
     end
-    request.accepted! if request.present?
-    #suppression du ranking"
-    request.ranking = nil
-    request.save
   end
 
   private
