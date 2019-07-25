@@ -6,7 +6,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     apiKey: ENV['MAILGUN_API'],
-    domain: 'sandbox0ff1a5af7bfe447da275205aa5f681d3.com',
+    domain: 'sandbox0ff1a5af7bfe447da275205aa5f681d3.mailgun.org',
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
