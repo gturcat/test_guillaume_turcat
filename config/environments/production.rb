@@ -5,7 +5,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "testguillaumeturcat.herokuapp.com" }
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
-    apiKey: ENV['MAILGUN_API'],
+    api_Key: 'de6dba3ec16a431cc2ff56b8576ea5d7-c50f4a19-28d30a15',
     domain: 'sandbox0ff1a5af7bfe447da275205aa5f681d3.mailgun.org',
   }
 
