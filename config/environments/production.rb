@@ -3,10 +3,14 @@ Rails.application.configure do
   config.webpacker.check_yarn_integrity = false
   # config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "testguillaumeturcat.herokuapp.com" }
-  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.mailgun_settings = {
-    api_Key: 'de6dba3ec16a431cc2ff56b8576ea5d7-c50f4a19-28d30a15',
-    domain: 'sandbox0ff1a5af7bfe447da275205aa5f681d3.mailgun.org',
+  :port           => ENV['MAILGUN_SMTP_PORT'],
+  :address        => ENV['MAILGUN_SMTP_SERVER'],
+  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  :domain         => 'testguillaumeturcat.herokuapp.com',
+  :authentication => :plain,
   }
 
   # Settings specified here will take precedence over those in config/application.rb.
