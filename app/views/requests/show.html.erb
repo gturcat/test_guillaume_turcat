@@ -1,39 +1,30 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-8">
+    <div style="padding-top: 20px">
       <div class="banner" style="background-image: url(https://dpwugnmezfetv.cloudfront.net/uploads/listing_photo/36344/538aa53575feb24c0c2142e0f7ecab15.jpg);">
       </div>
-      <div class="container add-padding">
+      <div style="padding-top: 20px">
         <h4>M. <%= @request.name %></h4>
         <p><% if @request.unconfirmed? %>
-
-  <p>Vous allez maintenant recevoir un mail à l'adresse <%= @request.email %> vous demandant de valider cette adresse email</p>
-
-  <% elsif @request.confirmed? %>
-
-  <p>Bonjour, votre adresse email est confirmée. Vous êtes inscrit sur liste d'attente.</p>
-
-  <% elsif @request.accepted? %>
-
-  <p>Félicitation, vous êtres aujourd'hui membre de notre espace de coworking</p>
-
-  <% elsif @request.expired? %>
-
-  <p>Nous regrettons que votre patience ait atteint ses limites</p>
-<% end %>
+          <p>Vous allez maintenant recevoir un mail à l'adresse <strong> <%= @request.email %> </strong> vous demandant de valider cette adresse email</p>
+          <% elsif @request.confirmed? %>
+          <p>Bonjour, votre adresse email est confirmée. Vous êtes inscrit sur liste d'attente.</p>
+          <% elsif @request.accepted? %>
+          <p>Félicitation, vous êtres aujourd'hui membre de notre espace de coworking</p>
+          <% elsif @request.expired? %>
+          <p>Nous regrettons que votre patience ait atteint ses limites</p>
+          <% end %>
+          <h5>Statut de votre demande :</h5>
+          <ul>
+            <li>Nom : <%= @request.name %></li>
+            <li>Adresse email : <%= @request.email %></li>
+            <li>Téléphone : <%=  @request.phone_number %></li>
+            <li>Bio : <%= @request.bio %></li>
+            <% if @request.ranking.present? %>
+            <li>Rang sur liste d'attente : <%= @request.ranking   %></li>
+            <li>Date de la requete : <%= @request.date_status %></li>
+             <% end %>
+          </ul>
+        </div>
       </div>
     </div>
-  <div class="col-12 col-lg-4">
-    Statut de votre demande :
-    <ul>
-      <li>Nom :<%= @request.name %></li>
-      <li>Adresse email :<%= @request.email %></li>
-      <li>Téléphone :<%=  @request.phone_number %></li>
-      <li>Bio : <%= @request.bio %></li>
-    </ul>
   </div>
-</div>
-</div>
-
-
-
