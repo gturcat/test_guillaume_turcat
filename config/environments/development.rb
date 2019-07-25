@@ -2,6 +2,17 @@ Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = true
   config.action_mailer.default_url_options = { host: "http://localhost:3000" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    authentication: :plain,
+    port: 587,
+    address: "smtp.mailgun.org",
+    domain: 'sandbox0ff1a5af7bfe447da275205aa5f681d3.mailgun.org',
+    user_name: ENV['MAILGUN_ADDRESS'],
+    password: ENV['MAILGUN_APP_PASSWORD'],
+  }
+
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
