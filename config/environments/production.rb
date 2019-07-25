@@ -2,7 +2,7 @@ Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "https://testguillaumeturcat.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "testguillaumeturcat.herokuapp.com" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
