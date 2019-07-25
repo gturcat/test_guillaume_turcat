@@ -1,14 +1,15 @@
-<div class="container">
+<div class="container border rounded" style="margin-top: 30px; padding: 40px;">
   <div class="row">
-    <div class="col-12 col-lg-8">
+    <div class="col-12 col-lg-8" style="padding-top: 0px">
       <div class="banner" style="background-image: url(https://dpwugnmezfetv.cloudfront.net/uploads/listing_photo/36344/538aa53575feb24c0c2142e0f7ecab15.jpg);">
       </div>
-      <div class="container add-padding">
-        <h1>Allier <strong>Confort</strong> et <strong>Productivité</strong>!</h1>
+      <div style="padding-top: 20px">
+        <h3>Allier <strong>Confort</strong> et <strong>Productivité</strong>!</h3>
         <p>Merci de remplir le formulaire d'inscription pour rejoindre notre espace de coworking.</p>
       </div>
     </div>
-  <div class="col-12 col-lg-4">
+  <div class="col-12 col-lg-4" style="padding-top: 0px">
+    <h4>Formulaire d'inscription</h4>
     <%= simple_form_for @request do |f| %>
     <%= f.input :name %>
     <%= f.input :email %>
