@@ -18,6 +18,7 @@ gem 'webpacker'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'mailgun-ruby', '~>1.1.6'
+gem 'postmark-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
