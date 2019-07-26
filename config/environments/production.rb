@@ -2,6 +2,8 @@ Rails.application.configure do
   # Verifies that versions and hashed value of the package contents in the project's package.json
   config.webpacker.check_yarn_integrity = false
   config.action_mailer.default_url_options = { host: "testguillaumeturcat.herokuapp.com" }
+
+#config for mailgun
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
   :port           => ENV['MAILGUN_SMTP_PORT'],
@@ -11,6 +13,9 @@ Rails.application.configure do
   :domain         => 'testguillaumeturcat.herokuapp.com',
   :authentication => :plain,
   }
+  # congif for postmak
+ config.action_mailer.delivery_method     = :postmark
+  config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
 
   # Settings specified here will take precedence over those in config/application.rb.
 
