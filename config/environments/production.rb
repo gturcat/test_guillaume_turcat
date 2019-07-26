@@ -4,15 +4,15 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "testguillaumeturcat.herokuapp.com" }
 
 #config for mailgun
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  :port           => ENV['MAILGUN_SMTP_PORT'],
-  :address        => ENV['MAILGUN_SMTP_SERVER'],
-  :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
-  :password       => ENV['MAILGUN_SMTP_PASSWORD'],
-  :domain         => 'testguillaumeturcat.herokuapp.com',
-  :authentication => :plain,
-  }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  # :port           => ENV['MAILGUN_SMTP_PORT'],
+  # :address        => ENV['MAILGUN_SMTP_SERVER'],
+  # :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+  # :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+  # :domain         => 'testguillaumeturcat.herokuapp.com',
+  # :authentication => :plain,
+  # }
   # congif for postmak
  config.action_mailer.delivery_method     = :postmark
   config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
