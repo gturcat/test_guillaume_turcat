@@ -40,3 +40,12 @@ r7.date_status = '19/01/2019'
 r7.save
 
 
+Desk.destroy_all
+puts 'destroy all desk'
+puts 'creating Desk'
+d1 = Desk.create(name: "Bureau 1")
+d2 = Desk.create(name: "Bureau 2")
+d3 = Desk.create(name: "Bureau 3")
+d4 = Desk.create(name: "Bureau 4")
+d5 = Desk.create(name: "Bureau 5")
+

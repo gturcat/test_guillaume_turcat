@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'requests#new'
 
-   # Sidekiq Web UI, only for admins.
+
+
+  # Sidekiq Web UI, only for admins.
   require "sidekiq/web"
   authenticate :user, lambda { |u| u.admin } do
     mount Sidekiq::Web => '/sidekiq'
@@ -14,4 +16,7 @@ Rails.application.routes.draw do
       get 'reconfirmation'
     end
   end
+
+  resources :desks, only: [:index, :show]
+
 end

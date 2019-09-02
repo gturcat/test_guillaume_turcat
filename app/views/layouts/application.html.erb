@@ -8,8 +8,12 @@
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
+    <script type="text/javascript" src="jsCalendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="jsCalendar.css">
+
   </head>
-  <body style='background-color: white'>
+  <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
