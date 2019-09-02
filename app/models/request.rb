@@ -12,12 +12,12 @@ class Request < ApplicationRecord
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
   scope :old, -> { where("date_status < ?", 3.months.ago) }
-  scope :need_to_expired, -> { where("ranking < ?", 67.days.ago) }
+  scope :need_to_expired, -> { where("date_status < ?", 67.days.ago) }
   scope :redorder_ranking, -> (ranking){ where("ranking > ?", ranking) }
   scope :first_in, -> (nbre) {where("ranking <= ?", nbre) }
 
   after_create :send_confirmation_email
-  after_commit :Add_ranking
+  after_commit :add_ranking
 
 def self.accept!(nbre)
     requests = Request.confirmed.first_in(nbre)
@@ -28,13 +28,13 @@ def self.accept!(nbre)
       #suppression du ranking"
       request.accepted!
       request.ranking = 0
-      request.save
+      request.save! #travail minimum sinon traiter l'erreur
       i += 1
       # toutes les requetes dont les rangs sont superieur à la request supprimee gagnent une place
       requests_reranking = Request.redorder_ranking(ranking)
       requests_reranking.each do |request|
         request.ranking -= 1
-        request.save
+        request.save! #travail minimum sinon traiter l'erreur
       end
       RequestMailer.with(request: request).admission.deliver_later
     end
@@ -47,7 +47,7 @@ def self.accept!(nbre)
     RequestMailer.with(request: self).confirmation.deliver_later
   end
 
-  def Add_ranking
+  def add_ranking
     if self.ranking.nil?
       max_ranking = Request.maximum('ranking').to_i
        if self.confirmed?
