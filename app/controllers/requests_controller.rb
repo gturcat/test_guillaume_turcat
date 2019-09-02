@@ -10,7 +10,7 @@ class RequestsController < ApplicationController
   def create
     @request = Request.new(request_params)
     if @request.save
-      @request.unconfirmed!
+      @request.unconfirmed! #il veut mieux mettre une valeur par defaut
 
       redirect_to request_path(@request)
     else
