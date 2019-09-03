@@ -1,0 +1,5 @@
+<%= simple_form_for([ desk, booking ]) do |form| %>
+  <%= form.input :start_date, as: :date, html5: true %>
+  <%= form.input :end_date, as: :date, html5: true %>
+  <%= form.button :submit %>
+<% end %>

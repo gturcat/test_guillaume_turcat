@@ -9,11 +9,11 @@ class BookingsController < ApplicationController
 
 
   def create
-    @desk = Desk.find(params[:id])
+    @desk = Desk.find(params[:desk_id])
     @booking = Booking.new(bookings_params)
     @booking.desk = @desk
     @booking.user = current_user
-    if booking.save
+    if @booking.save
       redirect_to booking_path(@booking)
     else
       render 'desks/show'
