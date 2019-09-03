@@ -1,11 +1,29 @@
-vous etes dans la show du <%=@desk.name %>
+
 <div class="container">
 
-<%= render 'bookings/form', desk: @desk, booking: @booking %>
 
 <div id="desk-details" data-id="<%= @desk.id %>">
-</div>
-<div id="calendar"></div>
-</div>
 
+<div class="container border rounded" style="margin-top: 30px; padding: 40px;">
+  <div class="row">
+    <div class="col-12 col-lg-6" style="padding-top: 0px">
+       <%= render 'calendar'  %>
+    </div>
 
+  <div class="col-12 col-lg-6" style="padding-top: 0px">
+    <div style="padding-top:
+    0px">
+        <h3>Votre Réservation du <%=@desk.name %></h3>
+        <p>Selectionner la période pour laquelle vous souhaiter réserver ce bureau dans le calendrier ci contre</p>
+        <p>Vous vous appretez à réserver ce bureau <span id="days"></span> jour(s) du :</p>
+        <ul>
+          <li id="user-choice-start-date"></li>
+          au
+          <li id="user-choice-end-date"></li>
+        </ul>
+        <%= render 'bookings/form', desk: @desk, booking: @booking %>
+      </div>
+
+  </div>
+</div>
+</div>
