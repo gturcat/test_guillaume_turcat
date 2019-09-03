@@ -40,3 +40,23 @@ r7.date_status = '19/01/2019'
 r7.save
 
 
+Desk.destroy_all
+puts 'destroy all desk'
+puts 'creating Desk'
+d1 = Desk.create(name: "Bureau 1")
+d2 = Desk.create(name: "Bureau 2")
+d3 = Desk.create(name: "Bureau 3")
+d4 = Desk.create(name: "Bureau 4")
+d5 = Desk.create(name: "Bureau 5")
+
+User.destroy_all
+puts 'destroy all users'
+puts 'creating User'
+u1= User.create(email: 'gturcat@me.com', password: "123456")
+
+Booking.destroy_all
+puts 'destroy all bookings'
+puts 'creating bookings'
+b1 = Booking.create(user: User.last, desk: Desk.first, start_date: "01/09/2019", end_date:"05/09/2019" )
+b2 = Booking.create(user: User.last, desk: Desk.last, start_date: "05/09/2019", end_date:"10/09/2019" )
+

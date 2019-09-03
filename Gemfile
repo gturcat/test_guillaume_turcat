@@ -7,6 +7,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.2'
+gem 'jquery-rails'
 gem 'redis'
 
 gem 'autoprefixer-rails'
@@ -19,6 +20,8 @@ gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'postmark-rails'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
