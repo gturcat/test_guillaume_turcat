@@ -5,5 +5,7 @@ class DesksController < ApplicationController
 
   def show
     @desk = Desk.find(params[:id])
+    @bookings = @desk.bookings
+    @booking = Booking.new
   end
 end
