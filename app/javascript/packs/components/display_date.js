@@ -18,7 +18,6 @@ function displayDate(date){
   return date
 }
 
-
 const display = (info) => {
 
   const userChoiceStartDate = document.getElementById('user-choice-start-date');
