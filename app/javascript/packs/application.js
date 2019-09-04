@@ -1,22 +1,26 @@
+
 import "bootstrap";
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+import { display } from 'packs/components/display_date';
 
-function dayDiff(date1, date2)
-  {
-    date1 = new Date(date1);
-    date2 = new Date(date2);
-    var diff = date2 - date1 ;
-    diff = Math.floor(diff / (1000 * 86400) ) ;
-    return diff;
-  }
+
+const emptyInfo = () => {
+  const userChoiceStartDate = document.getElementById('user-choice-start-date');
+  const userChoiceEndDate = document.getElementById('user-choice-end-date');
+  const displayDays = document.getElementById('days')
+  userChoiceStartDate.textContent = '';
+  userChoiceEndDate.textContent = '';
+  displayDays.textContent ='';
+  document.getElementById("bookbtn").disabled = true;
+}
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   const deskId = document.getElementById('desk-details');
   const id = deskId.dataset.id;
-
+  document.getElementById("bookbtn").disabled = true;
   var calendar = new Calendar(calendarEl, {
     height: 450,
     aspectRatio: 3,
@@ -24,23 +28,26 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [ interactionPlugin, dayGridPlugin ],
     selectOverlap: false,
     selectable: true,
+    unselect: function( jsEvent, view ){
+      emptyInfo();
+    },
     select: function(info) {
-      console.log(info.startStr + ' to ' + info.endStr);
-      const days = dayDiff(info.startStr, info.endStr)
+      var today = new Date();
+      if (info.start > today) {
+      document.getElementById("bookbtn").disabled = false;
       document.getElementById('booking_start_date').value = info.startStr;
       document.getElementById('booking_end_date').value = info.endStr;
-      document.getElementById('user-choice-start-date').textContent = '';
-      document.getElementById('user-choice-end-date').textContent = '';
-      document.getElementById('days').textContent = '';
-      document.getElementById('user-choice-start-date').textContent +=  info.startStr;
-      document.getElementById('user-choice-end-date').textContent += info.endStr;
-      document.getElementById('days').textContent += days;
-
-    }
+      display(info);
+      }
+      else {
+      document.getElementById("bookbtn").disabled = true;
+      }
+    },
   });
 
   calendar.render();
 });
+
 
 
 

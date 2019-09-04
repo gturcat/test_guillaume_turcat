@@ -1,4 +1,4 @@
-@bookings = @bookings.where(desk_id: params[:desk_id]) if params[:desk_id].present?
+Booking.select(Arel.star).where(Booking.arel_table[:desk_id].eq(:params)) if params[:desk_id].present?
 
 json.array!(@bookings) do |booking|
     json.extract! booking, :id, :user, :desk
