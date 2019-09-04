@@ -13,8 +13,8 @@ const emptyInfo = () => {
   userChoiceStartDate.textContent = '';
   userChoiceEndDate.textContent = '';
   displayDays.textContent ='';
-  document.getElementById("bookbtn").disabled = true;
 }
+
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
