@@ -5,7 +5,6 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { display } from 'packs/components/display_date';
 
-
 const emptyInfo = () => {
   const userChoiceStartDate = document.getElementById('user-choice-start-date');
   const userChoiceEndDate = document.getElementById('user-choice-end-date');
@@ -13,14 +12,22 @@ const emptyInfo = () => {
   userChoiceStartDate.textContent = '';
   userChoiceEndDate.textContent = '';
   displayDays.textContent ='';
+  document.getElementById('booking_start_date').value = '';
+  document.getElementById('booking_end_date').value = '';
+  document.getElementById("bookbtn").disabled = true;
 }
 
+const reset = document.getElementById("reset");
+reset.addEventListener('click', (event) => {
+  emptyInfo();
+});
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   const deskId = document.getElementById('desk-details');
   const id = deskId.dataset.id;
   document.getElementById("bookbtn").disabled = true;
+  var press = false;
   var calendar = new Calendar(calendarEl, {
     height: 450,
     aspectRatio: 3,
@@ -28,9 +35,6 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [ interactionPlugin, dayGridPlugin ],
     selectOverlap: false,
     selectable: true,
-    unselect: function( jsEvent, view ){
-      emptyInfo();
-    },
     select: function(info) {
       var today = new Date();
       if (info.start > today) {
@@ -47,7 +51,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
   calendar.render();
 });
-
-
 
 

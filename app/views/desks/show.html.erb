@@ -7,7 +7,7 @@
 <div class="container border rounded" style="margin-top: 30px; padding: 40px;">
   <div class="row">
     <div class="col-12 col-lg-6" style="padding-top: 0px">
-       <%= render 'calendar'  %>
+       <div id="calendar"></div>
     </div>
 
   <div class="col-12 col-lg-6" style="padding-top: 0px">
@@ -23,6 +23,7 @@
         </ul>
         <%= render 'bookings/form', desk: @desk, booking: @booking %>
       </div>
+      <div><%= link_to "reset", "#", id: "reset" %></div>
 
   </div>
 </div>
