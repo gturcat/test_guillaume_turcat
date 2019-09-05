@@ -36,4 +36,4 @@ const display = (info) => {
 }
 
 
-export { display };
+export { display, addDays };
