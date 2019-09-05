@@ -22,7 +22,6 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'postmark-rails'
 gem 'fullcalendar-rails'
 gem 'momentjs-rails'
-gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
