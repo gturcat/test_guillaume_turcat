@@ -3,7 +3,7 @@ import "bootstrap";
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { display } from 'packs/components/display_date';
+import { display, addDays } from 'packs/components/display_date';
 
 const emptyInfo = () => {
   const userChoiceStartDate = document.getElementById('user-choice-start-date');
@@ -39,8 +39,11 @@ document.addEventListener('DOMContentLoaded', function() {
       var today = new Date();
       if (info.start > today) {
       document.getElementById("bookbtn").disabled = false;
-      document.getElementById('booking_start_date').value = info.startStr;
-      document.getElementById('booking_end_date').value = info.endStr;
+      var date1 = new Date(info.startStr);
+      var date2 = new Date(info.endStr);
+      date2 = addDays(date2, -1)
+      document.getElementById('booking_start_date').value = date1;
+      document.getElementById('booking_end_date').value = date2;
       display(info);
       }
       else {
