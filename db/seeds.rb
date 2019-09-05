@@ -43,11 +43,11 @@ r7.save
 Desk.destroy_all
 puts 'destroy all desk'
 puts 'creating Desk'
-d1 = Desk.create(name: "Bureau 1")
-d2 = Desk.create(name: "Bureau 2")
-d3 = Desk.create(name: "Bureau 3")
-d4 = Desk.create(name: "Bureau 4")
-d5 = Desk.create(name: "Bureau 5")
+d1 = Desk.create(name: "Bureau 1", color:'red')
+d2 = Desk.create(name: "Bureau 2", color: 'blue')
+d3 = Desk.create(name: "Bureau 3", color: 'yellow')
+d4 = Desk.create(name: "Bureau 4", color: 'orange')
+d5 = Desk.create(name: "Bureau 5", color: 'purple')
 
 User.destroy_all
 puts 'destroy all users'
