@@ -1,12 +1,22 @@
-<h1>Desks#index</h1>
-<p>Find me in app/views/desks/index.html.erb</p>
+<div class="container">
 
-<ul>
-  <% @desks.each do |desk|%>
-  <li>
-    <%= link_to desk_path(desk) do %>
+<div class="container" style="margin-top: 30px; padding: 40px;">
+  <div class="row">
+    <div class="col-12 col-lg-12" style="padding-top: 0px">
+       <% @desks.each do |desk|%>
+<div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2>  <%= link_to desk_path(desk) do %>
     <%= desk.name  %>
     <% end %>
-  </li>
-  <% end %>
-</ul>
+    </h2>
+    <p>Product description with <strong>relevant info</strong> only.</p>
+  </div>
+</div>
+<% end %>
+    </div>
+</div>
+</div>
+
+
