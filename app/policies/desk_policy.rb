@@ -9,4 +9,8 @@ class DeskPolicy < ApplicationPolicy
       true
     end
 
+    def update?
+      user.admin?
+    end
+
 end
