@@ -15,6 +15,10 @@ class BookingPolicy < ApplicationPolicy
     end
 
     def show?
-      record.user == user
+      if user.admin?
+        true
+      else
+        record.user == user
+      end
     end
 end
