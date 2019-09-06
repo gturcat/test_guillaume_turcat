@@ -1,6 +1,8 @@
 class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
+    @desks = policy_scope(Desk).order(created_at: :desc)
+    @desk = Desk.find(24)
   end
 
   def show

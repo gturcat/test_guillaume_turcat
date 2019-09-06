@@ -1,0 +1,17 @@
+<div class="container" style="margin-top: 30px; padding: 40px;">
+  <div class="row">
+    <div class="col-12 col-lg-12" style="padding-top: 0px">
+       <% @desk_with_remplissge.each do |desk|%>
+<div class="card-product">
+  <%= cl_image_tag desk[:desk].photo %>
+  <div class="card-product-infos">
+    <h2>  <%= link_to desk_path(desk[:desk]) do %>
+    Bureau <%= desk[:desk].color %>
+    <% end %>
+    </h2>
+    <p>Nombre de jour dispobible pour les 7 prochains jour: <strong><%= desk[:remplissage]%></strong></p>
+  </div>
+</div>
+<% end %>
+    </div>
+</div>
