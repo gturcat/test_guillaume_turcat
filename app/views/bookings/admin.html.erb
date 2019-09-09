@@ -1,14 +1,10 @@
+
 <div class="container " style="margin-top: 30px; padding: 40px;">
   <div class="row">
     <div class="col-12 col-lg-2" style="padding-bottom: 10px">
-      <% @desks.each do |desk|%>
-      <div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
-        <%= cl_image_tag desk.photo, class: "card-img-top" %>
-        <div class="card-body">
-          <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
-        </div>
+      <div id="desks">
+    <%= render "bookings/desks", desks: @desks %>
       </div>
-      <% end %>
     </div>
     <div class="col-12 col-lg-10" style="padding-top: 0px">
       <div id="calendar">
@@ -31,7 +27,6 @@
       <div class="modal-body">
         <%= simple_form_for desk do |f| %>
         <%= f.input :photo %>
-
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Modifier la photo du <%= desk.color %></button>
@@ -42,3 +37,4 @@
 </div>
 <% end %>
 <% end %>
+

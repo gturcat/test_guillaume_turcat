@@ -2,8 +2,24 @@ class BookingsController < ApplicationController
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @desks = policy_scope(Desk).order(created_at: :desc)
-    @desk = Desk.find(24)
   end
+
+  def admin
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @desks = Desk.paginate(page: params[:page], per_page: 1)
+    authorize @bookings
+    respond_to do |format|
+      format.html # index.html.erb
+      format.js
+    end
+  end
+
+  def my_reservations
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    @desks = policy_scope(Desk).order(created_at: :desc)
+    authorize @bookings
+  end
+
 
   def show
     @booking = Booking.find(params[:id])

@@ -21,5 +21,10 @@ Rails.application.routes.draw do
     resources :bookings, only: [:index, :show, :create]
   end
 
-  resources :bookings, only: [:index, :show]
+  resources :bookings, only: [:index, :show] do
+    collection do
+      get 'admin'
+      get 'my_reservations'
+    end
+  end
 end

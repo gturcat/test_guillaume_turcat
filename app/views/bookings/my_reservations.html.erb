@@ -1,0 +1,18 @@
+<div class="container " style="margin-top: 30px; padding: 40px;">
+  <div class="row">
+    <div class="col-12 col-lg-2" style="padding-bottom: 10px">
+      <% @desks.each do |desk|%>
+      <div class="card" style="width: 6rem;">
+        <%= cl_image_tag desk.photo, class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-12 col-lg-10" style="padding-top: 0px">
+      <div id="calendar">
+      </div>
+    </div>
+  </div>
+</div>
