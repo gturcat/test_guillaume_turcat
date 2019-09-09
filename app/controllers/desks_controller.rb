@@ -28,13 +28,14 @@ class DesksController < ApplicationController
 
   def remplissage(desk)
     total_days = 0
-    current_bookings =  Booking.booking_of_next_seven_day.where(desk: desk)
-    old_bookings = Booking.previous_booking.where(desk: desk)
+    # current_bookings =  Booking.booking_of_next_seven_day.where(desk: desk)
+    current_bookings =  Booking.booking_of_next_seven_day.where(Booking.arel_table[:desk_id].eq(desk.id))
+    old_bookings = Booking.previous_booking.where(Booking.arel_table[:desk_id].eq(desk.id))
     date_ranges = old_bookings.map { |b| b.start_date..b.end_date }
 
     date_ranges.each do |range|
       if range.include? Date.today
-        total_days += (range.last - Date.today).to_i + 1 > 7 ? 7 : (range.last - Date.today).to_i + 1
+        total_days += (range.last - Date.today).to_i + 1 > 7 ? 7 : (range.last - Date.today).to_i
       end
     end
 
