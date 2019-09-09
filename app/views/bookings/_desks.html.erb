@@ -1,0 +1,9 @@
+<% @desks.each do |desk|%>
+      <div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
+        <%= cl_image_tag desk.photo, class: "card-img-top" %>
+        <div class="card-body">
+          <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
+        </div>
+      </div>
+      <%= will_paginate @desks %>
+      <% end %>

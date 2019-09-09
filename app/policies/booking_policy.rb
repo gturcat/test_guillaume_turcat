@@ -9,6 +9,13 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
+    def admin?
+      user.admin?
+    end
+
+    def my_reservations?
+      true
+    end
 
     def create?
       true

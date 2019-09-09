@@ -1,14 +1,10 @@
 class AvailabilityValidator < ActiveModel::EachValidator
 
-  def validate_each(record, attribute, value)
+  def validate(record)
     # bookings = Booking.where(["desk_id =?", record.desk_id])
-    bookings = Booking.select(Arel.star).where(Booking.arel_table[:desk_id].eq(record.desk_id))
-    date_ranges = bookings.map { |b| b.start_date..b.end_date }
-
-    date_ranges.each do |range|
-      if range.include? value
-        record.errors.add(attribute, "not available")
-      end
-    end
+    arel = Booking.arel_table
+    return Booking.where(arel[:start_date].lteq(record.end_date).and(arel[:end_date].gteq(record.start_date))).!exist?
   end
+
 end
+
