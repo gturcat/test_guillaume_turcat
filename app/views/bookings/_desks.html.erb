@@ -5,5 +5,7 @@
           <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
         </div>
       </div>
-      <%= will_paginate @desks %>
+      <div class='small-paginate'>
+      <%= will_paginate @desks,  page_links: false %>
+      </div>
       <% end %>
