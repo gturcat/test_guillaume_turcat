@@ -26,6 +26,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
 gem 'will_paginate', '~> 3.1.0'
+gem 'whenever', require: false
 
 group :development do
   gem 'web-console', '>= 3.3.0'
