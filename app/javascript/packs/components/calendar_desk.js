@@ -23,7 +23,7 @@ function calendarDesk() {
   });
 
     document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
+      var calendarEl = document.getElementById('calendar_desk');
       const deskId = document.getElementById('desk-details');
       const id = deskId.dataset.id;
       document.getElementById("bookbtn").disabled = true;

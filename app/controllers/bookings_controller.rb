@@ -8,10 +8,10 @@ class BookingsController < ApplicationController
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @desks = Desk.paginate(page: params[:page], per_page: 1)
     authorize @bookings
-    respond_to do |format|
-      format.html # index.html.erb
-      format.js
-    end
+    # respond_to do |format| # specifier uniquement quand on doit préciser un comportement non standard
+    #   format.html # index.html.erb
+    #   format.js
+    # end
   end
 
   def my_reservations
