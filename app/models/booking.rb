@@ -60,6 +60,7 @@ class Booking < ApplicationRecord
     end
     desk.freedays = Date.current.end_of_month.day - total_days - ((self.end_date - self.start_date).to_i + 1)
     desk.save!
+    FreedaysUdpateJob.perform_later
   end
 
 

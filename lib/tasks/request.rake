@@ -33,4 +33,9 @@ namespace :request do
   end
 end
 
-
+namespace :desks do
+  desc "calculate freedays"
+  task update_freedays: :environment do
+    FreedaysUdpateJob.perform_later
+  end
+end
