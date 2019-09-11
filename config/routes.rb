@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     collection do
       get 'admin'
       get 'my_reservations'
+      get 'pdf_ready'
     end
   end
 end

@@ -20,6 +20,7 @@
 # Learn more: http://github.com/javan/whenever
 
 ENV['RAILS_ENV'] = 'development'
+job_type :sidekiq, "cd :path && :environment_variable=:environment bundle exec sidekiq-client push :task :output"
 
 every :minute do # 1.minute 1.day 1.week 1.month 1.year is also supported
   rake "desks:update_freedays"

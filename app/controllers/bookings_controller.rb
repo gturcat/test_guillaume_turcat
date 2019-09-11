@@ -26,6 +26,15 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
+  def pdf_ready
+    @bookings = policy_scope(Booking).order(created_at: :desc)
+    authorize @bookings
+    respond_to do |format|
+    format.pdf {
+        render :pdf => "pdf_ready", :layout => 'pdf.html', disposition: 'attachment'
+      }
+    end
+  end
 
   def create
     @desk = Desk.find(params[:desk_id])

@@ -21,7 +21,7 @@ class DesksController < ApplicationController
     @desk = Desk.find(params[:id])
     authorize @desk
     @desk.update(desks_params)
-    redirect_to bookings_path
+    redirect_to admin_bookings_path
   end
 
   private

@@ -11,6 +11,9 @@
       </div>
     </div>
   </div>
+  <div style="text-align: right">
+  <%= link_to 'export pdf', pdf_ready_bookings_path(format: :pdf), target: '_blank'%>
+  </div>
 </div>
 <!-- Modal -->
 <% if current_user.admin %>
@@ -34,7 +37,9 @@
       </div>
     </div>
   </div>
+
 </div>
 <% end %>
 <% end %>
+
 

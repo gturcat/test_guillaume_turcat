@@ -16,6 +16,10 @@ if (document.getElementById("bookings_my_reservations")) {
   calendarMyReservation()();
 };
 
+if (document.getElementById("bookings_my_reservations")) {
+  calendarMyReservation()();
+};
+
 if (document.getElementById("bookings_admin")) {
    calendarBooking();
   var links = document.querySelectorAll(".pagination a");
