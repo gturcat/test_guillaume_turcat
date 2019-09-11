@@ -7,5 +7,4 @@ json.array!(@bookings) do |booking|
     json.color booking.desk.color
     json.title booking.user.email unless params[:desk_id].present?
     json.url booking_url(booking, format: :html)
-
 end

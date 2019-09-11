@@ -13,6 +13,10 @@ class BookingPolicy < ApplicationPolicy
       user.admin?
     end
 
+    def pdf_ready?
+      user.admin?
+    end
+
     def my_reservations?
       true
     end
