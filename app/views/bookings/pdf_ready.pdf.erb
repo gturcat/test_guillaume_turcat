@@ -13,7 +13,7 @@
   <tbody>
     <% @bookings.each do |booking| %>
     <tr>
-      <th scope="row"><%= booking.desk.name  %></th>
+      <td scope="row"><%= booking.desk.name  %></td>
       <td><%= booking.user.email%> </td>
       <td><%= booking.start_date %></td>
       <td><%= booking.end_date %></td>
