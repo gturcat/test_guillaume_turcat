@@ -1,5 +1,5 @@
 class DesksController < ApplicationController
-  def index
+  def index # route tested
     @desk_with_remplissge = []
     @desks = policy_scope(Desk).order(created_at: :desc)
     @desks.each do |desk|
@@ -10,7 +10,7 @@ class DesksController < ApplicationController
     end
   end
 
-  def show
+  def show # route tested
     @desk = Desk.find(params[:id])
     @bookings = @desk.bookings
     @booking = Booking.new

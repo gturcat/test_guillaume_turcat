@@ -52,7 +52,7 @@ class BookingTest < ActiveSupport::TestCase
     refute @booking.valid?
   end
 
-  test 'invalid freedays' do
+  test 'valid freedays' do
     @booking.desk = @desk2
     @booking.send(:calculate_freedays_to_concerned_desk)
     assert_equal(27, @booking.desk.freedays )

@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :desk
-  validates :start_date, :end_date, presence: true
+  validates :start_date, :end_date, presence: true #tested
   validate :availability
 
   scope :booking_of_next_seven_day, -> { where(start_date: (Time.now.midnight)..(Time.now.midnight + 7.day)) }
@@ -32,7 +32,7 @@ class Booking < ApplicationRecord
 
   private
 
-  def availability
+  def availability #tested but not correct
     arel = Booking.arel_table
     if Booking.count >= 1
       if !Booking.where(arel[:start_date].lteq(arel[:end_date]).and(arel[:end_date].gteq(arel[:start_date]))).exists?
@@ -41,7 +41,7 @@ class Booking < ApplicationRecord
     end
   end
 
-  def calculate_freedays_to_concerned_desk
+  def calculate_freedays_to_concerned_desk #tested
     desk = self.desk
     total_days = 0
 

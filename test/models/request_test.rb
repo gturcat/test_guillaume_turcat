@@ -2,8 +2,9 @@ require 'test_helper'
 
 class RequestTest < ActiveSupport::TestCase
   def setup
-    @request_already_in = requests(:guillaume_request)
-    @request = Request.new(name:'turcat', email: 'toto@gmail.com', bio: 'coucoucoucoucouocuoucoucououc', phone_number:'0613072416')
+    @request_guillaume = requests(:guillaume_request)
+    @request_roger = requests(:roger_request)
+    @request = Request.create(name:'turcat', email: 'toto@gmail.com', bio: 'coucoucoucoucouocuoucoucououc', phone_number:'0613072416', status: 'confirmed', date_status: '09/090/2019')
   end
 
   test 'valid request' do
@@ -45,10 +46,27 @@ class RequestTest < ActiveSupport::TestCase
     assert_not_nil @request.errors[:phone_number]
   end
 
+  test 'invalid email format' do
+    @request.email = 'gturat6130'
+    refute @request.valid?
+    assert_not_nil @request.errors[:email]
+  end
+
   test 'invalid email because already in base' do
     @request.email = 'gturcat@me.com'
     refute @request.valid?
     assert_not_nil @request.errors[:phone_number]
   end
 
+  test 'add ranking after create' do
+    puts "ranking = #{@request.ranking}"
+    assert_equal(3, @request.ranking)
+  end
+
+  test 'udapte ranking' do
+    puts "status = #{@request.status}"
+    puts "ranking = #{@request.ranking}"
+    Request.accept!(1)
+    assert_equal(2,@request.reload.ranking)
+  end
 end

@@ -18,7 +18,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "method Myreservation display" do
+  test "should get Myreservation" do
     get my_reservations_bookings_url
     assert_response :success
   end
@@ -34,5 +34,11 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
+
+  test "should get pdf_ready" do
+    get pdf_ready_bookings_url
+    assert_response :success
+  end
+
 
 end

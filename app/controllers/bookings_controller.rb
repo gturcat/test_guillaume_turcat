@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
     @desks = policy_scope(Desk).order(created_at: :desc)
   end
 
-  def admin
+  def admin #tested
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @desks = Desk.paginate(page: params[:page], per_page: 1)
     authorize @bookings
@@ -14,19 +14,19 @@ class BookingsController < ApplicationController
     # end
   end
 
-  def my_reservations
+  def my_reservations #routes tested
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @desks = policy_scope(Desk).order(created_at: :desc)
     authorize @bookings
   end
 
 
-  def show
+  def show #tested
     @booking = Booking.find(params[:id])
     authorize @booking
   end
 
-  def pdf_ready
+  def pdf_ready #not tested
     @bookings = policy_scope(Booking).order(created_at: :desc)
     authorize @bookings
     respond_to do |format|
@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
     end
   end
 
-  def create
+  def create #tested
     @desk = Desk.find(params[:desk_id])
     @booking = Booking.new(bookings_params)
     authorize @booking
