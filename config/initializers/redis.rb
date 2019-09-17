@@ -12,3 +12,8 @@ if url
   end
   $redis = Redis.new(:url => url)
 end
+
+if Rails.env.test?
+  require 'sidekiq/testing'
+  Sidekiq::Testing.inline!
+end
