@@ -1,0 +1,24 @@
+booking1:
+  user: guillaume
+  desk: desk1
+  start_date: '08/09/2019'
+  end_date: '11/09/2019'
+
+booking2:
+  user: roger
+  desk: desk1
+  start_date: '15/09/2019'
+  end_date: '17/09/2019'
+
+booking3:
+  user: roger
+  desk: desk1
+  start_date: '20/09/2019'
+  end_date: '25/09/2019'
+
+booking4:
+  user: roger
+  desk: desk2
+  start_date: '20/09/2019'
+  end_date: '25/09/2019'
+

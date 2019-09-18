@@ -33,7 +33,7 @@ function calendarDesk() {
         aspectRatio: 3,
         events: `/desks/${id}/bookings.json`,
         plugins: [ interactionPlugin, dayGridPlugin ],
-        selectOverlap: false,
+        selectOverlap: true,
         selectable: true,
         select: function(info) {
           var today = new Date();

@@ -2,7 +2,6 @@ class FreedaysUdpateJob < ApplicationJob
   queue_as :default
 
   def perform
-
     Desk.all.each do |desk|
 
       total_days = 0

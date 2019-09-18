@@ -1,0 +1,7 @@
+Bonjour M. <%= @request.name %>,
+
+Cliquez ci-dessous pour confirmer votre adresse email : <%= link_to  @request.email,confirmation_request_url(@request) %>
+
+Salutations,
+
+L'espace de coworking

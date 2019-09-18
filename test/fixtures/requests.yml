@@ -1,0 +1,42 @@
+guillaume_request:
+  name: 'Turcat'
+  email: 'gturcat@me.com'
+  bio: 'coucoucoucoucoucoucoucoucoucoucouc'
+  phone_number: '0613072416'
+  status: 'unconfirmed'
+
+roger_request:
+  name: 'roger'
+  email: 'roger@me.com'
+  bio: 'coucoucoucoucoucoucoucoucoucoucouc'
+  phone_number: '0613072416'
+  status: 'confirmed'
+  date_status: '20/08/2019'
+  ranking: 1
+
+manu_request:
+  name: 'manu'
+  email: 'manu@me.com'
+  bio: 'coucoucoucoucoucoucoucoucoucoucouc'
+  phone_number: '0613072416'
+  status: 'confirmed'
+  date_status: '21/08/2019'
+  ranking: 2
+
+lolo_request:
+  name: 'lolo'
+  email: 'lolo@me.com'
+  bio: 'coucoucoucoucoucoucoucoucoucoucouc'
+  phone_number: '0613072416'
+  status: 'confirmed'
+  date_status: '21/08/2018'
+  ranking: 3
+
+ben_request:
+  name: 'ben'
+  email: 'ben@me.com'
+  bio: 'coucoucoucoucoucoucoucoucoucoucouc'
+  phone_number: '0613072416'
+  status: 'confirmed'
+  date_status: '19/08/2019'
+  ranking: 4
