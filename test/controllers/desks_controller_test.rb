@@ -23,4 +23,9 @@ class DesksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  # test "can update an desk" do
+  #   patch desk_url(@desk1), params: {desk: { photo: fixture_file_upload('/files/guillaume.jpg', 'image/jpg')} }
+  #   puts "#{@desk1.reload.photo}"
+  # end
+
 end

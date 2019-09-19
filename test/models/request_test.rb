@@ -60,13 +60,13 @@ class RequestTest < ActiveSupport::TestCase
 
   test 'add ranking after create' do
     puts "ranking = #{@request.ranking}"
-    assert_equal(3, @request.ranking)
+    assert_equal(5, @request.ranking)
   end
 
   test 'udapte ranking' do
     puts "status = #{@request.status}"
     puts "ranking = #{@request.ranking}"
     Request.accept!(1)
-    assert_equal(2,@request.reload.ranking)
+    assert_equal(4,@request.reload.ranking)
   end
 end

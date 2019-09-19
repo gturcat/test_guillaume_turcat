@@ -29,9 +29,7 @@ class BookingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "can create a booking" do
-    post desk_bookings_url(desk_id: @desk1.id), params: { booking: {start_date: "19/09/2019", end_date: "20/09/2019"} }
-    assert_response :redirect
-    follow_redirect!
+    post desk_bookings_url(desk_id: @desk1.id), params: { booking: {start_date: "19/09/2020", end_date: "20/09/2020"} }
     assert_response :success
   end
 

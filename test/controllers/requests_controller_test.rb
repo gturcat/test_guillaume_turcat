@@ -6,7 +6,7 @@ class RequestsControllerTest < ActionDispatch::IntegrationTest
     @guillaume_request = requests(:guillaume_request)
   end
 
-  test "can create an article" do
+  test "can create an booking" do
     get "/requests/new"
     assert_response :success
 
