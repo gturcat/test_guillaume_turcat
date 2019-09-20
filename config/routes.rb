@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
   root to: 'requests#new'
-
-
 
   # Sidekiq Web UI, only for admins.
   require "sidekiq/web"
@@ -28,4 +26,7 @@ Rails.application.routes.draw do
       get 'pdf_ready'
     end
   end
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
 end
