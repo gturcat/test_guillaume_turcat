@@ -1,11 +1,11 @@
 desk1:
  name: desk1
- color: red
+ color: 'red'
 
 desk2:
  name: desk2
- color: blue
+ color: 'blue'
 
 desk3:
- name: desk2
- color: blue
+ name: desk3
+ color: 'blue'

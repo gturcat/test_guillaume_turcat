@@ -46,4 +46,5 @@ group :development, :test do
   gem 'capybara'
   gem 'webdrivers', '~> 4.0'
   gem 'launchy'
+  gem 'simplecov', require: false
 end
