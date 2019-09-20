@@ -30,6 +30,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'omniauth-google-oauth2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
