@@ -8,9 +8,12 @@ class RequestsController < ApplicationController
 
   def create #tested
     @request = Request.new(request_params)
+    if user_signed_in?
+      @request.user = current_user
+      @request.email = current_user.email
+    end
     if @request.save
       @request.unconfirmed! #il veut mieux mettre une valeur par defaut
-
       redirect_to request_path(@request)
     else
       render :new

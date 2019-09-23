@@ -12,12 +12,7 @@
     <h4>Formulaire d'inscription</h4>
     <%= simple_form_for @request do |f| %>
     <%= f.input :name %>
-    <%if current_user.present? %>
-      <%= f.input :email,:input_html => { value: current_user.email}, as: :hidden %>
-      <%= f.input :user_id,:input_html => { value: current_user.id}, as: :hidden %>
-      <% else %>
-     <%= f.input :email %>
-     <% end %>
+     <%= f.input :email if !current_user.present?  %>
     <%= f.input :phone_number %>
     <%= f.input :bio %>
     <button type="submit" class="btn btn-primary">Valider</button>
