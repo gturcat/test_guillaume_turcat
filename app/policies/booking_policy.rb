@@ -22,7 +22,7 @@ class BookingPolicy < ApplicationPolicy
     end
 
     def create?
-      true
+     user.request.accepted?
     end
 
     def show?

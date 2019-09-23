@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
   has_many :bookings
+  has_one :request
 
+  after_create :set_able_to_book
 
    def self.from_omniauth(auth)
     # Either create a User record or update it based on the provider (Google) and the UID
@@ -27,6 +29,16 @@ class User < ApplicationRecord
         )
     end
     user
+  end
+
+ private
+
+  def set_able_to_book
+    @request = Request.find_by(email: self.email)
+    if @request.present?
+      self.request = @request
+      self.save!
+    end
   end
 
 end

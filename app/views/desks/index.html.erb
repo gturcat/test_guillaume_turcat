@@ -1,4 +1,11 @@
 
+<% if current_user.request.present? && current_user.request.accepted? %>
 <%=render 'desks_index'  %>
+<% elsif !current_user.request.present? %>
+<%=render 'requests/new'  %>
+<% else %>
+<%=render 'requests/show'  %>
+<% end %>
+
 
 

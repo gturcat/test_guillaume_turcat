@@ -1,5 +1,6 @@
 class DesksController < ApplicationController
   def index # route tested
+    current_user.request.present? ? @request = current_user.request : @request = Request.new
     @desk_with_remplissge = []
     @desks = policy_scope(Desk).order(created_at: :desc)
     @desks.each do |desk|

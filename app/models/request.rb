@@ -8,6 +8,7 @@ class Request < ApplicationRecord
   validates :phone_number, format: { with: /\A(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})\z/ } #tested
   validates :bio, presence: true #tested
   validates :bio, length: { minimum: 20 } #tested
+  belongs_to :user, optional: true
 
   enum status: { unconfirmed: 0, confirmed: 1, accepted: 2, expired: 3 }
 
