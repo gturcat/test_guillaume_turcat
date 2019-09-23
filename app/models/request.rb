@@ -1,7 +1,7 @@
 class Request < ApplicationRecord
   validates :name, presence: true #tested
   validates :email, uniqueness: true #tested
-  # validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } #tested
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } #tested
   validates :bio, presence: true #tested
   validates :phone_number, presence: true #tested
   # regex find on stackoverflow

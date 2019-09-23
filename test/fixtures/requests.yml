@@ -3,7 +3,8 @@ guillaume_request:
   email: 'gturcat@me.com'
   bio: 'coucoucoucoucoucoucoucoucoucoucouc'
   phone_number: '0613072416'
-  status: 'unconfirmed'
+  status: 'accepted'
+  user: guillaume
 
 roger_request:
   name: 'roger'
