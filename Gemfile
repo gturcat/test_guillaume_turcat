@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'sidekiq'
 gem 'sidekiq-failures', '~> 1.0'
 gem 'sidekiq-client-cli'
+gem "sidekiq-cron", "~> 1.1"
 gem 'mailgun-ruby', '~>1.1.6'
 gem 'postmark-rails'
 gem 'fullcalendar-rails'
