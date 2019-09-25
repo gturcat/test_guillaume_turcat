@@ -35,7 +35,7 @@ class Booking < ApplicationRecord
 
   private
 
-  def availability #tested but not correct
+  def availability #tested and correct
     arel = Booking.arel_table
     if Booking.where(arel[:start_date].lteq(self.end_date).and(arel[:end_date].gteq(self.start_date)).and(arel[:desk_id].eq(self.desk_id))).exists?
       errors.add(:start_date, "overbooking")

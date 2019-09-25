@@ -13,7 +13,7 @@ class DesksController < ApplicationController
 
   def new
     @desk = Desk.new
-    @desk.prices.build
+    @desk.prices.build.prestations.build
     authorize @desk
   end
 
@@ -69,7 +69,9 @@ class DesksController < ApplicationController
   end
 
   def desks_params
-    params.require(:desk).permit(:photo, prices_attributes: [ :id, :name, :detail_price_cents ])
+    params.require(:desk).permit(:photo, :color, :name,
+     prices_attributes: [ :id, :name, :detail_price_cents, prestations_attributes: [ :id, :name, :detail_price_cents ] ],
+      )
   end
 
 end

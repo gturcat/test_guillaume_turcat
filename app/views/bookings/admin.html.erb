@@ -14,13 +14,13 @@
   <div style="text-align: right">
   <%= link_to 'export pdf', pdf_ready_bookings_path(format: :pdf), target: '_blank'%>
   <%= link_to 'import csv', "#", :id => 'modal', "data-toggle" => "modal", 'data-target' => '#exampleModal' %>
-  <%= link_to 'set price', new_desk_path %>
+  <%= link_to 'add desk', new_desk_path %>
   </div>
 </div>
 <!-- Modal for desk image -->
 <% if current_user.admin %>
 <% @desks.each do |desk|%>
-<div class="modal fade" id="desk<%=desk.id %>" tabindex="-1" role="dialog" aria-labelledby="<%=desk.id %>Label" aria-hidden="true">
+<div class="modal fade" id="desk<%=desk.id %>" tabindex="-1" role="dialog" aria-labelledby="<%=desk.id%>Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

@@ -1,15 +1,26 @@
+<div class="container">
+  <h3>Ajouter un bureau</h3>
 <%= simple_form_for @desk do |f| %>
   <%= f.input :name %>
-  <%= f.input :color %>
+  <%= f.input :color, collection: [ 'red',
+      'blue',
+      'yellow',
+      'orange',
+      'black',
+      'grey',
+      'purple',
+      ], as: :radio_buttons %>
   <%= f.input :photo %>
-  <h3>Prix</h3>
-  <div id='prices'>
-    <%= f.simple_fields_for :prices do |price| %>
-      <%= render 'price_fields', :f => price %>
-    <% end %>
-    <div class='links'>
-      <%= link_to_add_association 'add price', f, :prices %>
+  <h5>Prix</h5>
+    <div id='prices '>
+      <%= f.simple_fields_for :prices do |price| %>
+        <%= render 'price_fields', :f => price %>
+      <% end %>
     </div>
+  <div class='links'>
+      <%= link_to_add_association 'add price', f, :prices %>
   </div>
+
   <%= f.submit 'Save' %>
 <% end %>
+</div>
