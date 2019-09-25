@@ -32,6 +32,10 @@ gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'omniauth-google-oauth2'
+gem 'activerecord-import'
+gem 'money-rails'
+gem 'monetize'
+gem "cocoon"
 
 group :development do
   gem 'web-console', '>= 3.3.0'

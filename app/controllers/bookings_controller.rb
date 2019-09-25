@@ -49,6 +49,14 @@ class BookingsController < ApplicationController
     end
   end
 
+  def import
+    Booking.my_import(params[:file])
+    authorize Booking
+    redirect_to admin_bookings_path, notice: "Data imported!"
+  end
+
+  private
+
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
   end

@@ -1,4 +1,7 @@
 class Booking < ApplicationRecord
+  require 'csv'
+  require 'activerecord-import/base'
+  require 'activerecord-import/active_record/adapters/postgresql_adapter'
   belongs_to :user
   belongs_to :desk
   validates :start_date, :end_date, presence: true #tested
@@ -61,5 +64,12 @@ class Booking < ApplicationRecord
     FreedaysUdpateJob.perform_later
   end
 
+  def self.my_import(file)
+    booking = []
+    CSV.foreach(file.path, headers: true) do |row|
+      booking << Booking.new(row.to_hash)
+    end
+    Booking.import booking, recursive: true
+  end
 
 end

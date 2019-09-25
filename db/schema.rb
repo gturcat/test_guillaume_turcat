@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_23_092557) do
+ActiveRecord::Schema.define(version: 2019_09_25_085127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2019_09_23_092557) do
     t.string "color"
     t.string "photo"
     t.integer "freedays", default: 30
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "detail_price_cents", default: 0, null: false
+    t.bigint "desk_id"
+    t.index ["desk_id"], name: "index_prices_on_desk_id"
   end
 
   create_table "requests", force: :cascade do |t|

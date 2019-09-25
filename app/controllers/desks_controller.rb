@@ -11,6 +11,22 @@ class DesksController < ApplicationController
     end
   end
 
+  def new
+    @desk = Desk.new
+    @desk.prices.build
+    authorize @desk
+  end
+
+  def create
+    @desk = Desk.new(desks_params)
+    authorize @desk
+    if @desk.save
+      redirect_to admin_bookings_path
+    else
+      render :new
+    end
+  end
+
   def show # route tested
     @desk = Desk.find(params[:id])
     @bookings = @desk.bookings
@@ -24,6 +40,12 @@ class DesksController < ApplicationController
     @desk.update(desks_params)
     redirect_to admin_bookings_path
   end
+
+  def set_price
+    @desk = Desk.find(params[:id])
+    authorize @desk
+  end
+
 
   private
 
@@ -47,7 +69,7 @@ class DesksController < ApplicationController
   end
 
   def desks_params
-    params.require(:desk).permit(:photo)
+    params.require(:desk).permit(:photo, prices_attributes: [ :id, :name, :detail_price_cents ])
   end
 
 end

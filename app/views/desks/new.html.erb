@@ -1,0 +1,15 @@
+<%= simple_form_for @desk do |f| %>
+  <%= f.input :name %>
+  <%= f.input :color %>
+  <%= f.input :photo %>
+  <h3>Prix</h3>
+  <div id='prices'>
+    <%= f.simple_fields_for :prices do |price| %>
+      <%= render 'price_fields', :f => price %>
+    <% end %>
+    <div class='links'>
+      <%= link_to_add_association 'add price', f, :prices %>
+    </div>
+  </div>
+  <%= f.submit 'Save' %>
+<% end %>
