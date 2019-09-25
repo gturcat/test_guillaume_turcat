@@ -5,6 +5,6 @@
 //= require jquery_ujs
 //= require fullcalendar
 //= require fullcalendar/locale-all
-
+//= require cocoon
 
 

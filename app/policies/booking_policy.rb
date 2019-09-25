@@ -25,6 +25,10 @@ class BookingPolicy < ApplicationPolicy
      user.request.accepted?
     end
 
+    def import?
+     user.admin?
+    end
+
     def show?
       if user.admin?
         true

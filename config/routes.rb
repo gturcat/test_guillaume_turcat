@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :desks, only: [:index, :show, :update] do
+  resources :desks, only: [:index, :new, :create, :show, :update] do
     resources :bookings, only: [:index, :show, :create]
   end
 
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       get 'admin'
       get 'my_reservations'
       get 'pdf_ready'
+      post 'import'
     end
   end
 
