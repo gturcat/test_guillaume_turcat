@@ -29,11 +29,13 @@ class BookingsController < ApplicationController
   def pdf_ready #not tested
     @bookings = policy_scope(Booking).order(created_at: :desc)
     authorize @bookings
-    respond_to do |format|
-    format.pdf {
-        render :pdf => "pdf_ready", :layout => 'pdf.html', disposition: 'attachment'
-      }
-    end
+    pdf
+    # respond_to do |format|
+    # pdf_generator
+    # format.pdf {
+    #     render :pdf => pdf, :layout => 'pdf.html', disposition: 'attachment'
+    #   }
+    # end
   end
 
   def create #tested
@@ -59,5 +61,16 @@ class BookingsController < ApplicationController
 
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def pdf
+    html = render_to_string(action: "pdf_ready", layout: false)
+    kit = PDFKit.new(html, page_size: 'letter',
+                           footer_center: "Page [page] of [toPage]",
+                           zoom: 10,
+                           layout: false)
+    send_data(kit.to_pdf, :filename => 'report.pdf',
+                          :type => 'application/pdf',
+                          :disposition => 'inline')
   end
 end
