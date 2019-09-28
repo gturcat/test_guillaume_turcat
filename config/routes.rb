@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # devise_for :users
   root to: 'requests#new'
+  get 'shared/header'
 
   #Sidekiq Web UI, only for admins.
   require "sidekiq/web"
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
       get 'my_reservations'
       get 'pdf_ready'
       post 'import'
+      get 'header'
     end
   end
 

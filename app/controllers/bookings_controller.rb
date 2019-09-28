@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  def header
+    skip_authorization
+  end
 
   def show #tested
     @booking = Booking.find(params[:id])
@@ -65,10 +68,12 @@ class BookingsController < ApplicationController
 
   def pdf
     html = render_to_string(action: "pdf_ready", layout: false)
-    kit = PDFKit.new(html, page_size: 'letter',
+    kit = PDFKit.new(html, page_size: 'A4',
                            footer_center: "Page [page] of [toPage]",
-                           zoom: 10,
-                           layout: false)
+                           layout: false,
+                            :"header-html" => header_bookings_path
+                           )
+
     send_data(kit.to_pdf, :filename => 'report.pdf',
                           :type => 'application/pdf',
                           :disposition => 'inline')
