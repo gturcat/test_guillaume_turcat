@@ -30,7 +30,7 @@ gem 'carrierwave', '~> 1.2'
 gem 'will_paginate', '~> 3.1.0'
 gem 'whenever', require: false
 gem 'wkhtmltopdf-binary'
-# gem 'wicked_pdf'
+gem 'wicked_pdf'
 gem 'pdfkit'
 gem 'omniauth-google-oauth2'
 gem 'activerecord-import'
