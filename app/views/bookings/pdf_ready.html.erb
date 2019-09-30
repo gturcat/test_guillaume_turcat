@@ -1,19 +1,19 @@
 
 <h1>Reservation de bureaux en date du <%= Date.today %></h1>
-
-<table class="table">
+<div class="container">
+<table class="largeur">
   <thead>
     <tr>
-      <th scope="col">Nom du Bureau</th>
-      <th scope="col">User</th>
-      <th scope="col">Début de réservation</th>
-      <th scope="col">Fin de réservation</th>
+      <th>Nom du Bureau</th>
+      <th>User</th>
+      <th>Début de réservation</th>
+      <th>Fin de réservation</th>
     </tr>
   </thead>
   <tbody>
     <% @bookings.each do |booking| %>
     <tr>
-      <td scope="row"><%= booking.desk.name  %></td>
+      <td><%= booking.desk.name  %></td>
       <td><%= booking.user.email%> </td>
       <td><%= booking.start_date %></td>
       <td><%= booking.end_date %></td>

@@ -188,6 +188,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    pdfkit (0.8.4.1)
     pg (0.21.0)
     postmark (1.15.0)
       json
@@ -359,6 +360,7 @@ DEPENDENCIES
   monetize
   money-rails
   omniauth-google-oauth2
+  pdfkit
   pg (~> 0.21)
   postmark-rails
   pry-byebug

@@ -20,6 +20,9 @@ class BookingsController < ApplicationController
     authorize @bookings
   end
 
+  def header
+    skip_authorization
+  end
 
   def show #tested
     @booking = Booking.find(params[:id])
@@ -29,11 +32,13 @@ class BookingsController < ApplicationController
   def pdf_ready #not tested
     @bookings = policy_scope(Booking).order(created_at: :desc)
     authorize @bookings
-    respond_to do |format|
-    format.pdf {
-        render :pdf => "pdf_ready", :layout => 'pdf.html', disposition: 'attachment'
-      }
-    end
+    pdf
+    # respond_to do |format|
+    # pdf_generator
+    # format.pdf {
+    #     render :pdf => pdf, :layout => 'pdf.html', disposition: 'attachment'
+    #   }
+    # end
   end
 
   def create #tested
@@ -59,5 +64,25 @@ class BookingsController < ApplicationController
 
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def pdf
+    html = render_to_string(action: "pdf_ready", layout: false)
+    kit = PDFKit.new(html, page_size: 'letter',
+                          encoding:"UTF-8",
+                          dpi: '300',
+                          margin_top: '15',
+                          margin_bottom: '23',
+                          margin_left: '10',
+                          margin_right: '10',
+                          header_spacing: '0',
+                           footer_center: "Page [page] of [toPage]",
+                           layout: false,
+                           header_html: Rails.public_path.join('header.html')
+                           )
+     kit.stylesheets << Rails.public_path.join('style.css')
+    send_data(kit.to_pdf, :filename => 'report.pdf',
+                          :type => 'application/pdf',
+                          :disposition => 'inline')
   end
 end
