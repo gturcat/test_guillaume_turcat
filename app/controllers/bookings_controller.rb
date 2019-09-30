@@ -78,7 +78,7 @@ class BookingsController < ApplicationController
                           header_spacing: '0',
                            footer_center: "Page [page] of [toPage]",
                            layout: false,
-                           header_html: 'http://localhost:3000/header'
+                           header_html: Rails.public_path.join('header.html')
                            )
      kit.stylesheets << Rails.public_path.join('style.css')
     send_data(kit.to_pdf, :filename => 'report.pdf',
