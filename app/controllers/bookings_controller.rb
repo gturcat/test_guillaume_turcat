@@ -68,12 +68,19 @@ class BookingsController < ApplicationController
 
   def pdf
     html = render_to_string(action: "pdf_ready", layout: false)
-    kit = PDFKit.new(html, page_size: 'A4',
+    kit = PDFKit.new(html, page_size: 'letter',
+                          encoding:"UTF-8",
+                          dpi: '300',
+                          margin_top: '15',
+                          margin_bottom: '23',
+                          margin_left: '10',
+                          margin_right: '10',
+                          header_spacing: '0',
                            footer_center: "Page [page] of [toPage]",
                            layout: false,
-                            :"header-html" => header_bookings_path
+                           header_html: 'http://localhost:3000/header'
                            )
-
+     kit.stylesheets << Rails.public_path.join('style.css')
     send_data(kit.to_pdf, :filename => 'report.pdf',
                           :type => 'application/pdf',
                           :disposition => 'inline')
