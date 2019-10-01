@@ -1,14 +1,31 @@
 class DesksController < ApplicationController
   def index # route tested
+    @prestations = Prestation.all
+    search =[]
     current_user.request.present? ? @request = current_user.request : @request = Request.new
     @desk_with_remplissge = []
-    @desks = policy_scope(Desk).order(created_at: :desc)
+    if params[:search].present?
+      search << params[:search][:prestations]
+      search << params[:search][:query]
+      @desks = policy_scope(Desk).global_search(search).order(created_at: :desc)
+    else
+      @desks = policy_scope(Desk).order(created_at: :desc)
+    end
+
     @desks.each do |desk|
       @desk_with_remplissge << {
         desk: desk,
-        remplissage: remplissage(desk)
+        remplissage: remplissage(desk),
+        price: price(desk),
+        prestations: prestations(desk)
       }
     end
+  end
+
+  def edit
+    @desk = Desk.find(params[:id])
+    @desk.prices.build.prestations.build
+    authorize @desk
   end
 
   def new
@@ -48,6 +65,26 @@ class DesksController < ApplicationController
 
 
   private
+
+  def price(desk)
+    total_price =[]
+    desk.prices.each do |price|
+      price.prestations.each do |price_presta|
+        total_price << price_presta.detail_price_cents
+      end
+    end
+    total_price.sum
+  end
+
+  def prestations(desk)
+    total_prestations =[]
+    desk.prices.each do |price|
+      price.prestations.each do |detail_presta|
+        total_prestations << detail_presta.name
+      end
+    end
+    total_prestations
+  end
 
   def remplissage(desk)
     total_days = 0

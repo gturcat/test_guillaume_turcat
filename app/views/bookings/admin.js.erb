@@ -2,9 +2,13 @@ function refreshlist(reviewHTML) {
   const newlist = document.getElementById('desks');
   newlist.innerText =''
   newlist.insertAdjacentHTML('beforeend', reviewHTML);
+
 }
 
 refreshlist('<%= j render "bookings/desks", desks: @desks %>');
 
 var links = document.querySelectorAll(".pagination a");
-  links.forEach((item) => { item.setAttribute("data-remote", "true")});
+var deskId = document.querySelector(".card").dataset.target.substr(-1);
+links.forEach((item) => { item.setAttribute("data-remote", "true")});
+var modal1 = document.querySelector(".tochange1").id = `desk${deskId}`
+var modal2 = document.querySelector(".tochange2").id = `desk${deskId}Label`
