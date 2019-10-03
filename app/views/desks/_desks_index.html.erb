@@ -1,16 +1,17 @@
 <div class="container" style="margin-top: 30px; padding: 40px;">
 <div class="row">
-  <div class="col-12 col-lg-2" style="padding-top: 0px">
+  <div class="col-12 col-lg-4" style="padding-top: 0px">
+<div id="calendar"></div>
 <%= simple_form_for :search, url: desks_path, method: "GET" do |f| %>
+  <%= f.input :start_date, as: :date, html5: true, as: :hidden%>
+  <%= f.input :end_date, as: :date, html5: true, as: :hidden%>
   <%= f.input :query, label: "Nom du bureau" %>
-  <%= f.input :prestations, label: "Prestations", collection: @prestations, as: :check_boxes, value_method: :name %>
+  <%= f.input :prestations, label: "Prestations", collection: @prestations, as: :check_boxes %>
   <%= f.submit "Search", class: "btn btn-primary" %>
   <%= link_to "Reset", desks_path  %>
 <% end %>
 </div>
-
-
-    <div class="col-12 col-lg-10" style="padding-top: 0px">
+    <div class="col-12 col-lg-8" style="padding-top: 0px">
       <% @desk_with_remplissge.each do |desk|%>
       <div class="card-product">
         <%= cl_image_tag desk[:desk].photo %>
@@ -37,3 +38,5 @@
     </div>
   </div>
 </div>
+
+

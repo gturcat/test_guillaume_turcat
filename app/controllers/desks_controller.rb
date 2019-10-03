@@ -1,17 +1,17 @@
 class DesksController < ApplicationController
   def index # route tested
-    @prestations = Prestation.all
+    @prestations = list_prestations
     search =[]
     current_user.request.present? ? @request = current_user.request : @request = Request.new
     @desk_with_remplissge = []
     if params[:search].present?
-      search << params[:search][:prestations]
-      search << params[:search][:query]
-      @desks = policy_scope(Desk).global_search(search).order(created_at: :desc)
+      search << params[:search][:prestations] if params[:search][:prestations] != [""]
+      search << params[:search][:query] if params[:search][:query] != ""
+      @desks = policy_scope(Desk).desk_to_keep(params[:search][:start_date], params[:search][:end_date])
+      @desks = @desks.global_search(search).order(created_at: :desc) if search.count > 0
     else
       @desks = policy_scope(Desk).order(created_at: :desc)
     end
-
     @desks.each do |desk|
       @desk_with_remplissge << {
         desk: desk,
@@ -66,6 +66,14 @@ class DesksController < ApplicationController
 
   private
 
+  def list_prestations
+    list_prestations = []
+    Prestation.all.each do |prestation|
+      list_prestations << prestation.name.capitalize
+    end
+    list_prestations.uniq
+  end
+
   def price(desk)
     total_price =[]
     desk.prices.each do |price|
@@ -80,10 +88,10 @@ class DesksController < ApplicationController
     total_prestations =[]
     desk.prices.each do |price|
       price.prestations.each do |detail_presta|
-        total_prestations << detail_presta.name
+        total_prestations << detail_presta.name.capitalize
       end
     end
-    total_prestations
+    total_prestations.uniq
   end
 
   def remplissage(desk)
