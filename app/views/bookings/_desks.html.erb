@@ -1,16 +1,15 @@
 <% @desks.each do |desk|%>
-      <div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
-        <%= cl_image_tag desk.photo, class: "card-img-top" %>
-        <div class="card-body">
-          <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
-        </div>
-      </div>
-      <div class='small-paginate'>
-      <%= will_paginate @desks,  page_links: false %>
-      </div>
-      <% end %>
-
-      <% if current_user.admin %>
+<div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
+  <%= cl_image_tag desk.photo, class: "card-img-top" %>
+  <div class="card-body">
+    <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
+  </div>
+</div>
+<div class='small-paginate'>
+  <%= will_paginate @desks,  page_links: false %>
+</div>
+<% end %>
+<% if current_user.admin %>
 <% @desks.each do |desk|%>
 <div class="modal fade tochange1" id="desk<%=desk.id %>" tabindex="-1" role="dialog" aria-labelledby="desk<%=desk.id%>Label" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -22,13 +21,12 @@
         </button>
       </div>
       <div class="modal-body">
-       <%= link_to 'edit desk', edit_desk_path(desk) %>
+        <%= link_to 'edit desk', edit_desk_path(desk) %>
       </div>
       <div class="modal-footer">
       </div>
     </div>
   </div>
-
 </div>
 <% end %>
 <% end %>

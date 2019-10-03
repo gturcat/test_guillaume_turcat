@@ -1,29 +1,23 @@
-
 <div class="container">
-
-
-<div id="desk-details" data-id="<%= @desk.id %>">
-
-<div class="container" style="margin-top: 30px; padding: 40px;">
-  <div class="row">
-    <div class="col-12 col-lg-6" style="padding-top: 0px">
-       <div id="calendar_desk"></div>
-    </div>
-
-  <div class="col-12 col-lg-6" style="padding-top: 0px">
-    <div style="padding-top: 0px">
-        <h3>Votre Réservation du <%=@desk.name %></h3>
-        <p>Selectionner la période pour laquelle vous souhaitez réserver ce bureau dans le calendrier ci-contre</p>
-        <p>Vous vous apprêtez à réserver ce bureau <span id="days"></span> jour(s) du :</p>
-        <ul>
-          <li id="user-choice-start-date"></li>
-          au
-          <li id="user-choice-end-date"></li>
-        </ul>
-        <%= render 'bookings/form', desk: @desk, booking: @booking %>
+  <div id="desk-details" data-id="<%= @desk.id %>">
+    <div class="container" style="margin-top: 30px; padding: 40px;">
+      <div class="row">
+        <div class="col-12 col-lg-6" style="padding-top: 0px">
+          <div id="calendar_desk"></div>
+        </div>
+        <div class="col-12 col-lg-6" style="padding-top: 0px">
+          <div style="padding-top: 0px">
+            <h3>Votre Réservation du <%=@desk.name %></h3>
+            <p>Selectionner la période pour laquelle vous souhaitez réserver ce bureau dans le calendrier ci-contre</p>
+            <p>Vous vous apprêtez à réserver ce bureau <span id="days"></span> jour(s) du :</p>
+            <ul>
+              <li id="user-choice-start-date"></li>
+              au
+              <li id="user-choice-end-date"></li>
+            </ul>
+            <%= render 'bookings/form', desk: @desk, booking: @booking %>
+          </div>
+          <div><%= link_to "reset", "#", id: "reset" %></div>
+        </div>
       </div>
-      <div><%= link_to "reset", "#", id: "reset" %></div>
-
-  </div>
-</div>
-</div>
+    </div>

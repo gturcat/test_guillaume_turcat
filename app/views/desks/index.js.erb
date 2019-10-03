@@ -1,0 +1,9 @@
+
+function refreshlist(reviewHTML) {
+  const newlist = document.getElementById('list-of-desks');
+  newlist.innerText =''
+  newlist.insertAdjacentHTML('beforeend', reviewHTML);
+
+}
+
+refreshlist('<%= j render "desks/list_of_desks", desks: @desks_with_remplissage %>');

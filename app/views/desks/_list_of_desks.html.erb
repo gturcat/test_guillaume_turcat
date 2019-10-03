@@ -1,0 +1,25 @@
+<div id="list-of-desks">
+<% @desk_with_remplissge.each do |desk|%>
+      <div class="card-product">
+        <%= cl_image_tag desk[:desk].photo %>
+        <div class="card-product-infos">
+          <div>
+          <h2>  <%= link_to desk_path(desk[:desk]) do %>
+          Bureau <%= desk[:desk].color %>
+          <% end %>
+          </h2>
+          <p>Nombre de jour dispobible pour les 7 prochains jour: <strong><%= desk[:remplissage]%></strong></p>
+          <p>Nombre de jour réservé dans le mois: <strong><%= desk[:desk].freedays%></strong></p>
+          </div>
+          <div>
+          <p> <strong><%= desk[:price]%> €/jour</strong></p>
+          <ul>
+            <% desk[:prestations].each do|prestation|%>
+            <li><%=prestation  %></li>
+            <% end %>
+          </ul>
+          </div>
+        </div>
+      </div>
+      <% end %>
+</div>
