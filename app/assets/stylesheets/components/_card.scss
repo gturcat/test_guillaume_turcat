@@ -8,6 +8,13 @@
   align-items: center;
 }
 
+.card-product-infos{
+   display: flex;
+   align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .card-product img {
   height: 100%;
   width: 120px;
@@ -26,6 +33,20 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+}
+
+.card-product ul{
+  padding-left: 0;
+}
+
+.card-product li {
+  font-size: 8px;
+  line-height: 1.2;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 5px;
+  list-style:none;
+
 }
 
 .card-product .card-product-infos {

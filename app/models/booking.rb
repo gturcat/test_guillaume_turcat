@@ -32,7 +32,6 @@ class Booking < ApplicationRecord
 
   before_save :calculate_freedays_to_concerned_desk
 
-
   private
 
   def availability #tested and correct

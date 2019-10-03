@@ -1,11 +1,32 @@
 <% @desks.each do |desk|%>
-      <div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
-        <%= cl_image_tag desk.photo, class: "card-img-top" %>
-        <div class="card-body">
-          <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
-        </div>
+<div class="card" style="width: 6rem;" alt="..." data-toggle="modal" data-target="#desk<%=desk.id %>">
+  <%= cl_image_tag desk.photo, class: "card-img-top" %>
+  <div class="card-body">
+    <p class="card-text" style="color: <%= desk.color %>"><%= desk.color %></p>
+  </div>
+</div>
+<div class='small-paginate'>
+  <%= will_paginate @desks,  page_links: false %>
+</div>
+<% end %>
+<% if current_user.admin %>
+<% @desks.each do |desk|%>
+<div class="modal fade tochange1" id="desk<%=desk.id %>" tabindex="-1" role="dialog" aria-labelledby="desk<%=desk.id%>Label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title tochange2" id="desk<%=desk.id%>Label">Importer la photo du bureau</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class='small-paginate'>
-      <%= will_paginate @desks,  page_links: false %>
+      <div class="modal-body">
+        <%= link_to 'edit desk', edit_desk_path(desk) %>
       </div>
-      <% end %>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+<% end %>

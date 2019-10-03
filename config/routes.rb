@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :desks, only: [:index, :new, :create, :show, :update] do
+  resources :desks, only: [:index, :new, :create, :show, :update, :edit] do
     resources :bookings, only: [:index, :show, :create]
   end
 

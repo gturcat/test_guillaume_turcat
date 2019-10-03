@@ -1,9 +1,8 @@
-
 <div class="container " style="margin-top: 30px; padding: 40px;">
   <div class="row">
     <div class="col-12 col-lg-2" style="padding-bottom: 10px">
       <div id="desks">
-    <%= render "bookings/desks", desks: @desks %>
+        <%= render "bookings/desks", desks: @desks %>
       </div>
     </div>
     <div class="col-12 col-lg-10" style="padding-top: 0px">
@@ -12,37 +11,11 @@
     </div>
   </div>
   <div style="text-align: right">
-  <%= link_to 'export pdf', pdf_ready_bookings_path, target: '_blank'%>
-  <%= link_to 'import csv', "#", :id => 'modal', "data-toggle" => "modal", 'data-target' => '#exampleModal' %>
-  <%= link_to 'add desk', new_desk_path %>
+    <%= link_to 'export pdf', pdf_ready_bookings_path, target: '_blank'%>
+    <%= link_to 'import csv', "#", :id => 'modal', "data-toggle" => "modal", 'data-target' => '#exampleModal' %>
+    <%= link_to 'add desk', new_desk_path %>
   </div>
 </div>
-<!-- Modal for desk image -->
-<% if current_user.admin %>
-<% @desks.each do |desk|%>
-<div class="modal fade" id="desk<%=desk.id %>" tabindex="-1" role="dialog" aria-labelledby="<%=desk.id%>Label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="<%=desk.id %>Label">Importer la photo du bureau</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= simple_form_for desk do |f| %>
-        <%= f.input :photo %>
-      </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Modifier la photo du <%= desk.color %></button>
-        <% end %>
-      </div>
-    </div>
-  </div>
-
-</div>
-<% end %>
-<% end %>
 
 <!-- Modal for csv -->
 <% if current_user.admin %>
@@ -52,7 +25,7 @@
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">

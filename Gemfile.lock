@@ -109,6 +109,7 @@ GEM
       jquery-rails (>= 4.0.5, < 5.0.0)
       jquery-ui-rails (>= 5.0.2)
       momentjs-rails (>= 2.9.0)
+    geocoder (1.5.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     hashie (3.6.0)
@@ -190,6 +191,9 @@ GEM
     orm_adapter (0.5.0)
     pdfkit (0.8.4.1)
     pg (0.21.0)
+    pg_search (2.3.0)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
     postmark (1.15.0)
       json
     postmark-rails (0.19.0)
@@ -350,6 +354,7 @@ DEPENDENCIES
   dotenv-rails
   font-awesome-sass (~> 5.6.1)
   fullcalendar-rails
+  geocoder
   jbuilder (~> 2.0)
   jquery-rails
   launchy
@@ -362,6 +367,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   pdfkit
   pg (~> 0.21)
+  pg_search (~> 2.3.0)
   postmark-rails
   pry-byebug
   pry-rails

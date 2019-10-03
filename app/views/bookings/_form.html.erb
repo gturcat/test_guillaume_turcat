@@ -1,5 +1,5 @@
 <%= simple_form_for([ desk, booking ]) do |form|  %>
-  <%= form.input :start_date, :value => '', :id => 'start', as: :date, html5: true, as: :hidden %>
-  <%= form.input :end_date, :value => '', :id => 'end', as: :date, html5: true, as: :hidden %>
-  <button type="submit" class="btn btn-primary" id="bookbtn" >Réserver</button>
+<%= form.input :start_date, :value => '', :id => 'start', as: :date, html5: true, as: :hidden %>
+<%= form.input :end_date, :value => '', :id => 'end', as: :date, html5: true, as: :hidden %>
+<button type="submit" class="btn btn-primary" id="bookbtn" >Réserver</button>
 <% end %>

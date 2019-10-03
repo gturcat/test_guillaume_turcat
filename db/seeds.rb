@@ -52,7 +52,7 @@ d5 = Desk.create(name: "Bureau 5", color: 'purple')
 User.destroy_all
 puts 'destroy all users'
 puts 'creating User'
-u1= User.create(email: 'gturcat@me.com', password: "123456")
+u1= User.create(email: 'gturcat@me.com', password: "123456", admin: true)
 
 Booking.destroy_all
 puts 'destroy all bookings'

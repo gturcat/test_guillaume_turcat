@@ -1,15 +1,13 @@
 <div class='nested-fields parents'>
-    <%= f.input :name, collection: [ 'forfait location', 'prestation', 'taxe'] %>
-
-    <h6>Prestations</h>
+  <%= f.input :name, collection: [ 'forfait location', 'prestation', 'taxe'] %>
+  <h6>Prestations</h>
   <div id='prestation'>
     <%= f.simple_fields_for :prestations do |prestation| %>
-      <%= render 'prestation_fields', :f => prestation %>
+    <%= render 'prestation_fields', :f => prestation %>
     <% end %>
     <div class='links'>
       <%= link_to_add_association 'add prestation', f, :prestations  %>
     </div>
   </div>
-<%= link_to_remove_association "remove price", f%>
+  <%= link_to_remove_association "remove price", f%>
 </div>
-

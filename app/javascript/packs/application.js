@@ -5,6 +5,7 @@ import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { calendarDesk } from 'packs/components/calendar_desk';
+import { calendarFilterDesk } from 'packs/components/calendar_filter_desk';
 import { calendarBooking } from 'packs/components/calendar_booking';
 import { calendarMyReservation } from 'packs/components/calendar_booking_my_reservations';
 
@@ -26,6 +27,9 @@ if (document.getElementById("bookings_admin")) {
   links.forEach((item) => { item.setAttribute("data-remote", "true")});
 }
 
+if (document.getElementById("desks_index")) {
+  calendarFilterDesk();
+};
 
 
 
