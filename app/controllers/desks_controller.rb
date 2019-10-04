@@ -23,10 +23,10 @@ class DesksController < ApplicationController
     end
 
     @desks = @desks.geocoded
-    @markers = @desks.map do |flat|
+    @markers = @desks.map do |desk|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: desk.latitude,
+        lng: desk.longitude
       }
     end
 
@@ -64,8 +64,11 @@ class DesksController < ApplicationController
   def update
     @desk = Desk.find(params[:id])
     authorize @desk
-    @desk.update(desks_params)
-    redirect_to admin_bookings_path
+    if @desk.update(desks_params)
+      redirect_to admin_bookings_path
+    else
+      render 'edit'
+    end
   end
 
   def set_price
@@ -124,7 +127,7 @@ class DesksController < ApplicationController
   end
 
   def desks_params
-    params.require(:desk).permit(:photo, :color, :name,
+    params.require(:desk).permit(:photo, :color, :name, :address,
      prices_attributes: [ :id, :name, :detail_price_cents, prestations_attributes: [ :id, :name, :detail_price_cents ] ],
       )
   end
