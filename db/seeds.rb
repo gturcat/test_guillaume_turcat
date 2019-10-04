@@ -43,7 +43,7 @@ r7.save
 Desk.destroy_all
 puts 'destroy all desk'
 puts 'creating Desk'
-d1 = Desk.create(name: "Bureau 1", color:'red')
+d1 = Desk.create(address: '45 rue Yvette Bonnard, 13100 Aix en provence', name: "Bureau 1", color:'red')
 d2 = Desk.create(name: "Bureau 2", color: 'blue')
 d3 = Desk.create(name: "Bureau 3", color: 'yellow')
 d4 = Desk.create(name: "Bureau 4", color: 'orange')

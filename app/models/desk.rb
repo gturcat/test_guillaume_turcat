@@ -1,4 +1,6 @@
 class Desk < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode,  if: ->(obj){ obj.address.present? and obj.address_changed? }
   include PgSearch::Model
   pg_search_scope :global_search,
     against: [ :name ],

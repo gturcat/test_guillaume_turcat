@@ -1,5 +1,6 @@
 Geocoder.configure(
   # Geocoding options
+  units: :km, # defaults to miles (:mi)
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :nominatim,         # name of geocoding service (symbol)
   # ip_lookup: :ipinfo_io,      # name of IP address geocoding service (symbol)

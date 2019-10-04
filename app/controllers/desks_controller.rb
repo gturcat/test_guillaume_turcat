@@ -12,6 +12,7 @@ class DesksController < ApplicationController
     else
       @desks = policy_scope(Desk).order(created_at: :desc)
     end
+
     @desks.each do |desk|
       @desk_with_remplissge << {
         desk: desk,
@@ -20,6 +21,15 @@ class DesksController < ApplicationController
         prestations: prestations(desk)
       }
     end
+
+    @desks = @desks.geocoded
+    @markers = @desks.map do |desk|
+      {
+        lat: desk.latitude,
+        lng: desk.longitude
+      }
+    end
+
   end
 
   def edit
@@ -54,8 +64,11 @@ class DesksController < ApplicationController
   def update
     @desk = Desk.find(params[:id])
     authorize @desk
-    @desk.update(desks_params)
-    redirect_to admin_bookings_path
+    if @desk.update(desks_params)
+      redirect_to admin_bookings_path
+    else
+      render 'edit'
+    end
   end
 
   def set_price
@@ -114,7 +127,7 @@ class DesksController < ApplicationController
   end
 
   def desks_params
-    params.require(:desk).permit(:photo, :color, :name,
+    params.require(:desk).permit(:photo, :color, :name, :address,
      prices_attributes: [ :id, :name, :detail_price_cents, prestations_attributes: [ :id, :name, :detail_price_cents ] ],
       )
   end
