@@ -1,4 +1,5 @@
-
+import 'mapbox-gl/dist/mapbox-gl.css';
+// import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the stylesheet_pack_tag in the layout!
 import "bootstrap";
 import "jquery";
 import { Calendar } from '@fullcalendar/core';
@@ -8,6 +9,8 @@ import { calendarDesk } from 'packs/components/calendar_desk';
 import { calendarFilterDesk } from 'packs/components/calendar_filter_desk';
 import { calendarBooking } from 'packs/components/calendar_booking';
 import { calendarMyReservation } from 'packs/components/calendar_booking_my_reservations';
+
+import { initMapbox } from 'packs/components/init_mapbox';
 
 if (document.getElementById("calendar_desk")) {
   calendarDesk();
@@ -29,6 +32,7 @@ if (document.getElementById("bookings_admin")) {
 
 if (document.getElementById("desks_index")) {
   calendarFilterDesk();
+  initMapbox();
 };
 
 

@@ -12,6 +12,7 @@ class DesksController < ApplicationController
     else
       @desks = policy_scope(Desk).order(created_at: :desc)
     end
+
     @desks.each do |desk|
       @desk_with_remplissge << {
         desk: desk,
@@ -20,6 +21,15 @@ class DesksController < ApplicationController
         prestations: prestations(desk)
       }
     end
+
+    @desks = @desks.geocoded
+    @markers = @desks.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+
   end
 
   def edit
