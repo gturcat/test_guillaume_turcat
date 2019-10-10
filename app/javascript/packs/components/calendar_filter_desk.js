@@ -27,4 +27,12 @@ function calendarFilterDesk() {
   });
 }
 
+// function resetFilter(){
+//   var resetBtn = document.getElementById('reset-btn');
+//   resetBtn.addEventListener("click", (event) => {
+//     document.getElementById('search_start_date').value = "";
+//     document.getElementById('search_end_date').value = "";
+//   });
+// }
+
 export { calendarFilterDesk }

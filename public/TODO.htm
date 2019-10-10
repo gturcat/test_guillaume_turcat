@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:3000/desks/2/edit -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.algolia-places {
+  width: 100%;
+}
+
+.ap-input, .ap-hint {
+  width: 100%;
+  padding-right: 35px;
+  padding-left: 16px;
+  line-height: 40px;
+  height: 40px;
+  border: 1px solid #CCC;
+  border-radius: 3px;
+  outline: none;
+  font: inherit;
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+}
+
+.ap-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.ap-input::-ms-clear {
+  display: none;
+}
+
+.ap-input:hover ~ .ap-input-icon svg,
+.ap-input:focus ~ .ap-input-icon svg,
+.ap-input-icon:hover svg {
+  fill: #aaaaaa;
+}
+
+.ap-dropdown-menu {
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+
+.ap-suggestion {
+  cursor: pointer;
+  height: 46px;
+  line-height: 46px;
+  padding-left: 18px;
+  overflow: hidden;
+}
+
+.ap-suggestion em {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.ap-address {
+  font-size: smaller;
+  margin-left: 12px;
+  color: #aaaaaa;
+}
+
+.ap-suggestion-icon {
+  margin-right: 10px;
+  width: 14px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.ap-suggestion-icon svg {
+  -webkit-transform: scale(0.9) translateY(2px);
+          transform: scale(0.9) translateY(2px);
+  fill: #cfcfcf;
+}
+
+.ap-input-icon {
+  border: 0;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  outline: none;
+}
+
+.ap-input-icon.ap-icon-pin {
+  cursor: pointer;
+}
+
+.ap-input-icon svg {
+  fill: #cfcfcf;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.ap-cursor {
+  background: #efefef;
+}
+
+.ap-cursor .ap-suggestion-icon svg {
+  -webkit-transform: scale(1) translateY(2px);
+          transform: scale(1) translateY(2px);
+  fill: #aaaaaa;
+}
+
+.ap-footer {
+  opacity: .8;
+  text-align: right;
+  padding: .5em 1em .5em 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+
+.ap-footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ap-footer a svg {
+  vertical-align: middle;
+}
+
+.ap-footer:hover {
+  opacity: 1;
+}
+</style>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>TODO</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="4guVvxWnV2PE74xFroTE2Nl0iZrEhPbmk4VNrXp5fVLmXK1KGYL6XtmHFV+GMQ39izztMrLEtOEGF7Kzgm8o8Q==">
+    <meta name="action-cable-url" content="/cable">
+    <link rel="stylesheet" media="all" href="./TODO_files/application.css">
+     <!--  <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script> -->
+    <link href="./TODO_files/mapbox-gl.css" rel="stylesheet">
+     <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+
+
+  </head>
+  <body id="desks_edit" class="white-background" cz-shortcut-listen="true">
+    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <a class="navbar-brand" href="http://localhost:3000/">
+    <img src="./TODO_files/photo-mobilier-design-24002-5c6a813536055_0_0_0.jpg">
+</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/bookings/admin">admin</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/bookings/my_reservations">Reservations en cours</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="http://localhost:3000/desks">Réserver un bureau</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <div class="nav-link" data-toggle="dropdown">gturcat@me.com</div>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" rel="nofollow" data-method="delete" href="http://localhost:3000/users/sign_out">Log out</a>
+          </div>
+        </li>
+    </ul>
+  </div>
+</div>
+
+    
+    
+<div class="container">
+  <h3>Ajouter un bureau</h3>
+<form class="simple_form edit_desk" id="edit_desk_2" novalidate="novalidate" enctype="multipart/form-data" action="http://localhost:3000/desks/2" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="_method" value="patch"><input type="hidden" name="authenticity_token" value="4guVvxWnV2PE74xFroTE2Nl0iZrEhPbmk4VNrXp5fVLmXK1KGYL6XtmHFV+GMQ39izztMrLEtOEGF7Kzgm8o8Q==">
+  <div class="form-group string optional desk_name form-group-valid"><label class="form-control-label string optional" for="desk_name">Name</label><input class="form-control is-valid string optional" type="text" value="Bureau modifié" name="desk[name]" id="desk_name"></div>
+  <fieldset class="form-group radio_buttons optional desk_color form-group-valid"><legend class="col-form-label pt-0">Color</legend><input type="hidden" name="desk[color]" value=""><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="red" name="desk[color]" id="desk_color_red"><label class="collection_radio_buttons" for="desk_color_red">red</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="blue" checked="checked" name="desk[color]" id="desk_color_blue"><label class="collection_radio_buttons" for="desk_color_blue">blue</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="yellow" name="desk[color]" id="desk_color_yellow"><label class="collection_radio_buttons" for="desk_color_yellow">yellow</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="orange" name="desk[color]" id="desk_color_orange"><label class="collection_radio_buttons" for="desk_color_orange">orange</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="black" name="desk[color]" id="desk_color_black"><label class="collection_radio_buttons" for="desk_color_black">black</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="grey" name="desk[color]" id="desk_color_grey"><label class="collection_radio_buttons" for="desk_color_grey">grey</label></div><div class="form-check"><input class="form-check-input is-valid radio_buttons optional" type="radio" value="purple" name="desk[color]" id="desk_color_purple"><label class="collection_radio_buttons" for="desk_color_purple">purple</label></div></fieldset>
+  <div class="form-group file optional desk_photo form-group-valid"><label class="file optional" for="desk_photo">Photo</label><input class="form-control-file is-valid file optional" type="file" name="desk[photo]" id="desk_photo"></div>
+  <div class="form-group string optional desk_address form-group-valid"><label class="form-control-label string optional" for="desk_address">Address</label><span class="algolia-places" style="position: relative; display: inline-block; direction: ltr;"><input class="form-control is-valid string optional ap-input" type="text" value="86 rue des olivier, 13100 aix en provence" name="desk[address]" id="desk_address" autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="both" aria-expanded="false" aria-owns="algolia-places-listbox-0" dir="auto" style="position: relative; vertical-align: top;"><pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Open Sans&quot;, Helvetica, sans-serif; font-size: 16px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: normal; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre><span class="ap-dropdown-menu" role="listbox" id="algolia-places-listbox-0" style="position: absolute; top: 100%; z-index: 100; display: none; left: 0px; right: auto;"><div class="ap-dataset-places"></div></span><button type="button" aria-label="clear" class="ap-input-icon ap-icon-clear" style="display: none;"><svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg"><path d="M.566 1.698L0 1.13 1.132 0l.565.566L6 4.868 10.302.566 10.868 0 12 1.132l-.566.565L7.132 6l4.302 4.3.566.568L10.868 12l-.565-.566L6 7.132l-4.3 4.302L1.13 12 0 10.868l.566-.565L4.868 6 .566 1.698z"></path></svg>
+</button><button type="button" aria-label="focus" class="ap-input-icon ap-icon-pin"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 14 20"><path d="M7 0C3.13 0 0 3.13 0 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5C5.62 9.5 4.5 8.38 4.5 7S5.62 4.5 7 4.5 9.5 5.62 9.5 7 8.38 9.5 7 9.5z"></path></svg>
+</button></span></div>
+  <h5>Prix</h5>
+    <div id="prices ">
+      
+        <div class="nested-fields parents">
+  <div class="form-group select optional desk_prices_name"><label class="form-control-label select optional" for="desk_prices_attributes_0_name">Name</label><select class="form-control select optional" name="desk[prices_attributes][0][name]" id="desk_prices_attributes_0_name"><option value=""></option>
+<option value="forfait location">forfait location</option>
+<option value="prestation">prestation</option>
+<option value="taxe">taxe</option></select></div>
+  <h6>Prestations
+  <div id="prestation">
+    
+    <div class="nested-fields enfants">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group string optional desk_prices_prestations_name"><label class="form-control-label string optional" for="desk_prices_attributes_0_prestations_attributes_0_name">Name</label><input class="form-control string optional" type="text" value="" name="desk[prices_attributes][0][prestations_attributes][0][name]" id="desk_prices_attributes_0_prestations_attributes_0_name"></div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid"><label class="form-control-label integer optional" for="desk_prices_attributes_0_prestations_attributes_0_detail_price_cents">Detail price cents</label><input class="form-control is-valid numeric integer optional" type="number" step="1" value="0" name="desk[prices_attributes][0][prestations_attributes][0][detail_price_cents]" id="desk_prices_attributes_0_prestations_attributes_0_detail_price_cents"></div>
+    </div>
+  </div>
+    <input value="false" type="hidden" name="desk[prices_attributes][0][prestations_attributes][0][_destroy]" id="desk_prices_attributes_0_prestations_attributes_0__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove prestation</a>
+</div>
+
+<input type="hidden" value="5" name="desk[prices_attributes][0][prestations_attributes][0][id]" id="desk_prices_attributes_0_prestations_attributes_0_id">    <div class="links">
+      <a class="add_fields" data-association="prestation" data-associations="prestations" data-association-insertion-template="&lt;div class=&#39;nested-fields enfants&#39;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group string optional desk_prices_prestations_name&quot;&gt;&lt;label class=&quot;form-control-label string optional&quot; for=&quot;desk_prices_attributes_0_prestations_attributes_new_prestations_name&quot;&gt;Name&lt;/label&gt;&lt;input class=&quot;form-control string optional&quot; type=&quot;text&quot; name=&quot;desk[prices_attributes][0][prestations_attributes][new_prestations][name]&quot; id=&quot;desk_prices_attributes_0_prestations_attributes_new_prestations_name&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid&quot;&gt;&lt;label class=&quot;form-control-label integer optional&quot; for=&quot;desk_prices_attributes_0_prestations_attributes_new_prestations_detail_price_cents&quot;&gt;Detail price cents&lt;/label&gt;&lt;input class=&quot;form-control is-valid numeric integer optional&quot; type=&quot;number&quot; step=&quot;1&quot; value=&quot;0&quot; name=&quot;desk[prices_attributes][0][prestations_attributes][new_prestations][detail_price_cents]&quot; id=&quot;desk_prices_attributes_0_prestations_attributes_new_prestations_detail_price_cents&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;desk[prices_attributes][0][prestations_attributes][new_prestations][_destroy]&quot; id=&quot;desk_prices_attributes_0_prestations_attributes_new_prestations__destroy&quot; /&gt;&lt;a class=&quot;remove_fields dynamic&quot; href=&quot;#&quot;&gt;remove prestation&lt;/a&gt;
+&lt;/div&gt;
+" href="http://localhost:3000/desks/2/edit#">add prestation</a>
+    </div>
+  </div>
+  <input value="false" type="hidden" name="desk[prices_attributes][0][_destroy]" id="desk_prices_attributes_0__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove price</a>
+</h6></div>
+
+<input type="hidden" value="3" name="desk[prices_attributes][0][id]" id="desk_prices_attributes_0_id">
+        <div class="nested-fields parents">
+  <div class="form-group select optional desk_prices_name"><label class="form-control-label select optional" for="desk_prices_attributes_1_name">Name</label><select class="form-control select optional" name="desk[prices_attributes][1][name]" id="desk_prices_attributes_1_name"><option value=""></option>
+<option value="forfait location">forfait location</option>
+<option value="prestation">prestation</option>
+<option value="taxe">taxe</option></select></div>
+  <h6>Prestations
+  <div id="prestation">
+    
+    <div class="nested-fields enfants">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group string optional desk_prices_prestations_name"><label class="form-control-label string optional" for="desk_prices_attributes_1_prestations_attributes_0_name">Name</label><input class="form-control string optional" type="text" value="" name="desk[prices_attributes][1][prestations_attributes][0][name]" id="desk_prices_attributes_1_prestations_attributes_0_name"></div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid"><label class="form-control-label integer optional" for="desk_prices_attributes_1_prestations_attributes_0_detail_price_cents">Detail price cents</label><input class="form-control is-valid numeric integer optional" type="number" step="1" value="0" name="desk[prices_attributes][1][prestations_attributes][0][detail_price_cents]" id="desk_prices_attributes_1_prestations_attributes_0_detail_price_cents"></div>
+    </div>
+  </div>
+    <input value="false" type="hidden" name="desk[prices_attributes][1][prestations_attributes][0][_destroy]" id="desk_prices_attributes_1_prestations_attributes_0__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove prestation</a>
+</div>
+
+<input type="hidden" value="6" name="desk[prices_attributes][1][prestations_attributes][0][id]" id="desk_prices_attributes_1_prestations_attributes_0_id">    <div class="links">
+      <a class="add_fields" data-association="prestation" data-associations="prestations" data-association-insertion-template="&lt;div class=&#39;nested-fields enfants&#39;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group string optional desk_prices_prestations_name&quot;&gt;&lt;label class=&quot;form-control-label string optional&quot; for=&quot;desk_prices_attributes_1_prestations_attributes_new_prestations_name&quot;&gt;Name&lt;/label&gt;&lt;input class=&quot;form-control string optional&quot; type=&quot;text&quot; name=&quot;desk[prices_attributes][1][prestations_attributes][new_prestations][name]&quot; id=&quot;desk_prices_attributes_1_prestations_attributes_new_prestations_name&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid&quot;&gt;&lt;label class=&quot;form-control-label integer optional&quot; for=&quot;desk_prices_attributes_1_prestations_attributes_new_prestations_detail_price_cents&quot;&gt;Detail price cents&lt;/label&gt;&lt;input class=&quot;form-control is-valid numeric integer optional&quot; type=&quot;number&quot; step=&quot;1&quot; value=&quot;0&quot; name=&quot;desk[prices_attributes][1][prestations_attributes][new_prestations][detail_price_cents]&quot; id=&quot;desk_prices_attributes_1_prestations_attributes_new_prestations_detail_price_cents&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;desk[prices_attributes][1][prestations_attributes][new_prestations][_destroy]&quot; id=&quot;desk_prices_attributes_1_prestations_attributes_new_prestations__destroy&quot; /&gt;&lt;a class=&quot;remove_fields dynamic&quot; href=&quot;#&quot;&gt;remove prestation&lt;/a&gt;
+&lt;/div&gt;
+" href="http://localhost:3000/desks/2/edit#">add prestation</a>
+    </div>
+  </div>
+  <input value="false" type="hidden" name="desk[prices_attributes][1][_destroy]" id="desk_prices_attributes_1__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove price</a>
+</h6></div>
+
+<input type="hidden" value="4" name="desk[prices_attributes][1][id]" id="desk_prices_attributes_1_id">
+        <div class="nested-fields parents">
+  <div class="form-group select optional desk_prices_name"><label class="form-control-label select optional" for="desk_prices_attributes_2_name">Name</label><select class="form-control select optional" name="desk[prices_attributes][2][name]" id="desk_prices_attributes_2_name"><option value=""></option>
+<option value="forfait location">forfait location</option>
+<option value="prestation">prestation</option>
+<option value="taxe">taxe</option></select></div>
+  <h6>Prestations
+  <div id="prestation">
+    
+    <div class="nested-fields enfants">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group string optional desk_prices_prestations_name"><label class="form-control-label string optional" for="desk_prices_attributes_2_prestations_attributes_0_name">Name</label><input class="form-control string optional" type="text" value="" name="desk[prices_attributes][2][prestations_attributes][0][name]" id="desk_prices_attributes_2_prestations_attributes_0_name"></div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid"><label class="form-control-label integer optional" for="desk_prices_attributes_2_prestations_attributes_0_detail_price_cents">Detail price cents</label><input class="form-control is-valid numeric integer optional" type="number" step="1" value="0" name="desk[prices_attributes][2][prestations_attributes][0][detail_price_cents]" id="desk_prices_attributes_2_prestations_attributes_0_detail_price_cents"></div>
+    </div>
+  </div>
+    <input value="false" type="hidden" name="desk[prices_attributes][2][prestations_attributes][0][_destroy]" id="desk_prices_attributes_2_prestations_attributes_0__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove prestation</a>
+</div>
+
+<input type="hidden" value="7" name="desk[prices_attributes][2][prestations_attributes][0][id]" id="desk_prices_attributes_2_prestations_attributes_0_id">    <div class="links">
+      <a class="add_fields" data-association="prestation" data-associations="prestations" data-association-insertion-template="&lt;div class=&#39;nested-fields enfants&#39;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group string optional desk_prices_prestations_name&quot;&gt;&lt;label class=&quot;form-control-label string optional&quot; for=&quot;desk_prices_attributes_2_prestations_attributes_new_prestations_name&quot;&gt;Name&lt;/label&gt;&lt;input class=&quot;form-control string optional&quot; type=&quot;text&quot; name=&quot;desk[prices_attributes][2][prestations_attributes][new_prestations][name]&quot; id=&quot;desk_prices_attributes_2_prestations_attributes_new_prestations_name&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid&quot;&gt;&lt;label class=&quot;form-control-label integer optional&quot; for=&quot;desk_prices_attributes_2_prestations_attributes_new_prestations_detail_price_cents&quot;&gt;Detail price cents&lt;/label&gt;&lt;input class=&quot;form-control is-valid numeric integer optional&quot; type=&quot;number&quot; step=&quot;1&quot; value=&quot;0&quot; name=&quot;desk[prices_attributes][2][prestations_attributes][new_prestations][detail_price_cents]&quot; id=&quot;desk_prices_attributes_2_prestations_attributes_new_prestations_detail_price_cents&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;desk[prices_attributes][2][prestations_attributes][new_prestations][_destroy]&quot; id=&quot;desk_prices_attributes_2_prestations_attributes_new_prestations__destroy&quot; /&gt;&lt;a class=&quot;remove_fields dynamic&quot; href=&quot;#&quot;&gt;remove prestation&lt;/a&gt;
+&lt;/div&gt;
+" href="http://localhost:3000/desks/2/edit#">add prestation</a>
+    </div>
+  </div>
+  <input value="false" type="hidden" name="desk[prices_attributes][2][_destroy]" id="desk_prices_attributes_2__destroy"><a class="remove_fields existing" href="http://localhost:3000/desks/2/edit#">remove price</a>
+</h6></div>
+
+<input type="hidden" value="5" name="desk[prices_attributes][2][id]" id="desk_prices_attributes_2_id">
+        <div class="nested-fields parents">
+  <div class="form-group select optional desk_prices_name"><label class="form-control-label select optional" for="desk_prices_attributes_3_name">Name</label><select class="form-control select optional" name="desk[prices_attributes][3][name]" id="desk_prices_attributes_3_name"><option value=""></option>
+<option value="forfait location">forfait location</option>
+<option value="prestation">prestation</option>
+<option value="taxe">taxe</option></select></div>
+  <h6>Prestations
+  <div id="prestation">
+    
+    <div class="nested-fields enfants">
+  <div class="row">
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group string optional desk_prices_prestations_name"><label class="form-control-label string optional" for="desk_prices_attributes_3_prestations_attributes_0_name">Name</label><input class="form-control string optional" type="text" name="desk[prices_attributes][3][prestations_attributes][0][name]" id="desk_prices_attributes_3_prestations_attributes_0_name"></div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+    <div class="form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid"><label class="form-control-label integer optional" for="desk_prices_attributes_3_prestations_attributes_0_detail_price_cents">Detail price cents</label><input class="form-control is-valid numeric integer optional" type="number" step="1" value="0" name="desk[prices_attributes][3][prestations_attributes][0][detail_price_cents]" id="desk_prices_attributes_3_prestations_attributes_0_detail_price_cents"></div>
+    </div>
+  </div>
+    <input value="false" type="hidden" name="desk[prices_attributes][3][prestations_attributes][0][_destroy]" id="desk_prices_attributes_3_prestations_attributes_0__destroy"><a class="remove_fields dynamic" href="http://localhost:3000/desks/2/edit#">remove prestation</a>
+</div>
+
+    <div class="links">
+      <a class="add_fields" data-association="prestation" data-associations="prestations" data-association-insertion-template="&lt;div class=&#39;nested-fields enfants&#39;&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group string optional desk_prices_prestations_name&quot;&gt;&lt;label class=&quot;form-control-label string optional&quot; for=&quot;desk_prices_attributes_3_prestations_attributes_new_prestations_name&quot;&gt;Name&lt;/label&gt;&lt;input class=&quot;form-control string optional&quot; type=&quot;text&quot; name=&quot;desk[prices_attributes][3][prestations_attributes][new_prestations][name]&quot; id=&quot;desk_prices_attributes_3_prestations_attributes_new_prestations_name&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-sm-6 col-xs-12&quot;&gt;
+    &lt;div class=&quot;form-group integer optional desk_prices_prestations_detail_price_cents form-group-valid&quot;&gt;&lt;label class=&quot;form-control-label integer optional&quot; for=&quot;desk_prices_attributes_3_prestations_attributes_new_prestations_detail_price_cents&quot;&gt;Detail price cents&lt;/label&gt;&lt;input class=&quot;form-control is-valid numeric integer optional&quot; type=&quot;number&quot; step=&quot;1&quot; value=&quot;0&quot; name=&quot;desk[prices_attributes][3][prestations_attributes][new_prestations][detail_price_cents]&quot; id=&quot;desk_prices_attributes_3_prestations_attributes_new_prestations_detail_price_cents&quot; /&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+    &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;desk[prices_attributes][3][prestations_attributes][new_prestations][_destroy]&quot; id=&quot;desk_prices_attributes_3_prestations_attributes_new_prestations__destroy&quot; /&gt;&lt;a class=&quot;remove_fields dynamic&quot; href=&quot;#&quot;&gt;remove prestation&lt;/a&gt;
+&lt;/div&gt;
+" href="http://localhost:3000/desks/2/edit#">add prestation</a>
+    </div>
+  </div>
+  <input value="false" type="hidden" name="desk[prices_attributes][3][_destroy]" id="desk_prices_attributes_3__destroy"><a class="remove_fields dynamic" href="http://localhost:3000/desks/2/edit#">remove price</a>
+</h6></div>
+
+    </div>
+  <div class="links">
+      <a class="add_fields" data-association="price" data-associations="prices" data-association-insertion-template="&lt;div class=&#39;nested-fields parents&#39;&gt;
+  &lt;div class=&quot;form-group select optional desk_prices_name&quot;&gt;&lt;label class=&quot;form-control-label select optional&quot; for=&quot;desk_prices_attributes_new_prices_name&quot;&gt;Name&lt;/label&gt;&lt;select class=&quot;form-control select optional&quot; name=&quot;desk[prices_attributes][new_prices][name]&quot; id=&quot;desk_prices_attributes_new_prices_name&quot;&gt;&lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+&lt;option value=&quot;forfait location&quot;&gt;forfait location&lt;/option&gt;
+&lt;option value=&quot;prestation&quot;&gt;prestation&lt;/option&gt;
+&lt;option value=&quot;taxe&quot;&gt;taxe&lt;/option&gt;&lt;/select&gt;&lt;/div&gt;
+  &lt;h6&gt;Prestations&lt;/h&gt;
+  &lt;div id=&#39;prestation&#39;&gt;
+        &lt;div class=&#39;links&#39;&gt;
+      &lt;a class=&quot;add_fields&quot; data-association=&quot;prestation&quot; data-associations=&quot;prestations&quot; data-association-insertion-template=&quot;&amp;lt;div class=&amp;#39;nested-fields enfants&amp;#39;&amp;gt;
+  &amp;lt;div class=&amp;quot;row&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;col-sm-6 col-xs-12&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;form-group string optional desk_prices_new_prices_prestations_name&amp;quot;&amp;gt;&amp;lt;label class=&amp;quot;form-control-label string optional&amp;quot; for=&amp;quot;desk_prices_attributes_new_prices_prestations_attributes_new_prestations_name&amp;quot;&amp;gt;Name&amp;lt;/label&amp;gt;&amp;lt;input class=&amp;quot;form-control string optional&amp;quot; type=&amp;quot;text&amp;quot; name=&amp;quot;desk[prices_attributes][new_prices][prestations_attributes][new_prestations][name]&amp;quot; id=&amp;quot;desk_prices_attributes_new_prices_prestations_attributes_new_prestations_name&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;div class=&amp;quot;col-sm-6 col-xs-12&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;form-group integer optional desk_prices_new_prices_prestations_detail_price_cents form-group-valid&amp;quot;&amp;gt;&amp;lt;label class=&amp;quot;form-control-label integer optional&amp;quot; for=&amp;quot;desk_prices_attributes_new_prices_prestations_attributes_new_prestations_detail_price_cents&amp;quot;&amp;gt;Detail price cents&amp;lt;/label&amp;gt;&amp;lt;input class=&amp;quot;form-control is-valid numeric integer optional&amp;quot; type=&amp;quot;number&amp;quot; step=&amp;quot;1&amp;quot; value=&amp;quot;0&amp;quot; name=&amp;quot;desk[prices_attributes][new_prices][prestations_attributes][new_prestations][detail_price_cents]&amp;quot; id=&amp;quot;desk_prices_attributes_new_prices_prestations_attributes_new_prestations_detail_price_cents&amp;quot; /&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+    &amp;lt;input value=&amp;quot;false&amp;quot; type=&amp;quot;hidden&amp;quot; name=&amp;quot;desk[prices_attributes][new_prices][prestations_attributes][new_prestations][_destroy]&amp;quot; id=&amp;quot;desk_prices_attributes_new_prices_prestations_attributes_new_prestations__destroy&amp;quot; /&amp;gt;&amp;lt;a class=&amp;quot;remove_fields dynamic&amp;quot; href=&amp;quot;#&amp;quot;&amp;gt;remove prestation&amp;lt;/a&amp;gt;
+&amp;lt;/div&amp;gt;
+&quot; href=&quot;#&quot;&gt;add prestation&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;input value=&quot;false&quot; type=&quot;hidden&quot; name=&quot;desk[prices_attributes][new_prices][_destroy]&quot; id=&quot;desk_prices_attributes_new_prices__destroy&quot; /&gt;&lt;a class=&quot;remove_fields dynamic&quot; href=&quot;#&quot;&gt;remove price&lt;/a&gt;
+&lt;/div&gt;
+" href="http://localhost:3000/desks/2/edit#">add price</a>
+  </div>
+
+  <input type="submit" name="commit" value="Save" data-disable-with="Save">
+</form></div>
+
+    <script src="./TODO_files/application.js"></script>
+    <script src="./TODO_files/application-e09ad7b86bd456105d56.js"></script>
+  
+
+</body></html>
