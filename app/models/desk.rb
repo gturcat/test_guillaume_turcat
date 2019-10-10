@@ -21,8 +21,7 @@ class Desk < ApplicationRecord
   has_many :prices
   has_many :prestations, through: :prices
   accepts_nested_attributes_for :prices,
-                                allow_destroy: true,
-                                reject_if: ->(attrs) { attrs['name'].blank? || attrs['detail_price_cents'].blank? }
+                                allow_destroy: true
 
 
   #scope
