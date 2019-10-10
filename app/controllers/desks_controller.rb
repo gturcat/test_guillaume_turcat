@@ -20,16 +20,27 @@ class DesksController < ApplicationController
 
     #  filter with arel request
     if params[:search].present?
-      # base_scope = ->(text){ joins(:prestations).where(Prestation.arel_table[:name].matches("%#{text}%"))}
-      # base_scope = ->(text){ Desk.joins(:prestations).where(Prestation.arel_table[:name].matches("%#{text}%"))}
       search_prestation = params[:search][:prestations]
       search_prestation.shift
+      number_of_selected_prestations = search_prestation.count
+      base_scope = ->(text){ Prestation.arel_table[:name].matches("%#{text}%")}
+      scope = search_prestation.reduce(nil) do |memo, name|
+        if memo
+          memo.or(base_scope.call(name))
+        else
+          base_scope.call(name)
+        end
+      end
       search_name = params[:search][:query]
       search_start_date = params[:search][:start_date]
       search_end_sate = params[:search][:end_date]
-      @desks = policy_scope(Desk).desk_to_keep(search_start_date, search_end_sate)
-      @desks = @desks.select(Arel.star).where(Desk.arel_table[:name].eq(search_name)) if params[:search][:query] != ""
-      @desks = @desks.left_outer_joins(:prestations).where(Prestation.arel_table[:name].matches("%#{search_prestation.first}%")) if search_prestation != []
+      # @desks = policy_scope(Desk).desk_to_keep(search_start_date, search_end_sate)
+      # @desks = @desks.select(Arel.star).where(Desk.arel_table[:name].eq(search_name)) if params[:search][:query] != ""
+      @desks = policy_scope(Desk).select(:id, :color, :freedays).joins(:prestations)
+          .group(:id)
+          .merge(Prestation.where(scope))
+          .having(Price.arel_table[:desk_id]
+          .count.gteq(number_of_selected_prestations))
 
     else
       @desks = policy_scope(Desk).order(created_at: :desc)
@@ -47,13 +58,13 @@ class DesksController < ApplicationController
     end
 
     # geocoded
-    # @desks = Desk.geocoded
-    # @markers = @desks.map do |desk|
-    #   {
-    #     lat: desk.latitude,
-    #     lng: desk.longitude
-    #   }
-    # end
+    @desks = Desk.geocoded
+    @markers = @desks.map do |desk|
+      {
+        lat: desk.latitude,
+        lng: desk.longitude
+      }
+    end
 
   end
 
@@ -148,12 +159,10 @@ class DesksController < ApplicationController
       :id,
       :name,
       :detail_price_cents,
-      :_destroy,
       prestations_attributes: [
         :id,
         :name,
         :detail_price_cents,
-        :_destroy
       ]
     ],
       )
