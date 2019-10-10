@@ -8,7 +8,7 @@
   <%= f.input :query, label: "Nom du bureau" %>
   <%= f.input :prestations, label: "Prestations", collection: @prestations, as: :check_boxes %>
   <%= f.submit "Search", class: "btn btn-primary" %>
-  <%= link_to "Reset", desks_path,  remote: true  %>
+  <%= link_to "Reset", desks_path, id: "reset-btn",  remote: true  %>
 <% end %>
 </div>
     <div class="col-12 col-lg-8" style="padding-top: 0px">
@@ -16,5 +16,13 @@
     </div>
   </div>
 </div>
+
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 
 

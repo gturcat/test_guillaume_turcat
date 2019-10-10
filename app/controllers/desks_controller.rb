@@ -1,17 +1,42 @@
 class DesksController < ApplicationController
   def index # route tested
-    @prestations = list_prestations
-    search =[]
+    @prestations = Prestation.list_prestations.uniq
+
+    # redirection to home pundit
     current_user.request.present? ? @request = current_user.request : @request = Request.new
-    @desk_with_remplissge = []
+
+    # filter with PG_search
+    # search =[]
+    # if params[:search].present?
+    #   search_name = params[:search][:prestations] if params[:search][:prestations] != [""]
+    #   search_name.shift
+    #   search << search_name
+    #   search << params[:search][:query] if params[:search][:query] != ""
+    #   @desks = policy_scope(Desk).desk_to_keep(params[:search][:start_date], params[:search][:end_date])
+    #   @desks = policy_scope(Desk).global_search(search).order(created_at: :desc) if search.count > 0
+    # else
+    #   @desks = policy_scope(Desk).order(created_at: :desc)
+    # end
+
+    #  filter with arel request
     if params[:search].present?
-      search << params[:search][:prestations] if params[:search][:prestations] != [""]
-      search << params[:search][:query] if params[:search][:query] != ""
-      @desks = policy_scope(Desk).desk_to_keep(params[:search][:start_date], params[:search][:end_date])
-      @desks = @desks.global_search(search).order(created_at: :desc) if search.count > 0
+      # base_scope = ->(text){ joins(:prestations).where(Prestation.arel_table[:name].matches("%#{text}%"))}
+      # base_scope = ->(text){ Desk.joins(:prestations).where(Prestation.arel_table[:name].matches("%#{text}%"))}
+      search_prestation = params[:search][:prestations]
+      search_prestation.shift
+      search_name = params[:search][:query]
+      search_start_date = params[:search][:start_date]
+      search_end_sate = params[:search][:end_date]
+      @desks = policy_scope(Desk).desk_to_keep(search_start_date, search_end_sate)
+      @desks = @desks.select(Arel.star).where(Desk.arel_table[:name].eq(search_name)) if params[:search][:query] != ""
+      @desks = @desks.left_outer_joins(:prestations).where(Prestation.arel_table[:name].matches("%#{search_prestation.first}%")) if search_prestation != []
+
     else
       @desks = policy_scope(Desk).order(created_at: :desc)
     end
+
+    # #calcul des taux de remplissage
+    @desk_with_remplissge = []
     @desks.each do |desk|
       @desk_with_remplissge << {
         desk: desk,
@@ -20,11 +45,20 @@ class DesksController < ApplicationController
         prestations: prestations(desk)
       }
     end
+
+    # geocoded
+    # @desks = Desk.geocoded
+    # @markers = @desks.map do |desk|
+    #   {
+    #     lat: desk.latitude,
+    #     lng: desk.longitude
+    #   }
+    # end
+
   end
 
   def edit
     @desk = Desk.find(params[:id])
-    @desk.prices.build.prestations.build
     authorize @desk
   end
 
@@ -54,8 +88,11 @@ class DesksController < ApplicationController
   def update
     @desk = Desk.find(params[:id])
     authorize @desk
-    @desk.update(desks_params)
-    redirect_to admin_bookings_path
+    if @desk.update(desks_params)
+      redirect_to admin_bookings_path
+    else
+      render 'edit'
+    end
   end
 
   def set_price
@@ -65,14 +102,6 @@ class DesksController < ApplicationController
 
 
   private
-
-  def list_prestations
-    list_prestations = []
-    Prestation.all.each do |prestation|
-      list_prestations << prestation.name.capitalize
-    end
-    list_prestations.uniq
-  end
 
   def price(desk)
     total_price =[]
@@ -114,8 +143,19 @@ class DesksController < ApplicationController
   end
 
   def desks_params
-    params.require(:desk).permit(:photo, :color, :name,
-     prices_attributes: [ :id, :name, :detail_price_cents, prestations_attributes: [ :id, :name, :detail_price_cents ] ],
+    params.require(:desk).permit(:photo, :color, :name, :address,
+     prices_attributes: [
+      :id,
+      :name,
+      :detail_price_cents,
+      :_destroy,
+      prestations_attributes: [
+        :id,
+        :name,
+        :detail_price_cents,
+        :_destroy
+      ]
+    ],
       )
   end
 

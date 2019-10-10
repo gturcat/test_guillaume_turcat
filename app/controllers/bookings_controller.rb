@@ -71,7 +71,7 @@ class BookingsController < ApplicationController
     kit = PDFKit.new(html, page_size: 'letter',
                           encoding:"UTF-8",
                           dpi: '300',
-                          margin_top: '15',
+                          margin_top: '30',
                           margin_bottom: '23',
                           margin_left: '10',
                           margin_right: '10',

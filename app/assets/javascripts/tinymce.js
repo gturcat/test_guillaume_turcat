@@ -1,3 +1,4 @@
+
 $(document).on('ready page:load', function () {
   if (typeof tinyMCE != 'undefined') {
     tinyMCE.init({
