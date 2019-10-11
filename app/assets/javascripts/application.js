@@ -6,5 +6,5 @@
 //= require fullcalendar
 //= require fullcalendar/locale-all
 //= require cocoon
-
+//= require tinymce
 

@@ -1,0 +1,8 @@
+<h4>Nouvel email</h4>
+    <%= simple_form_for @message do |f| %>
+    <%= f.input :to %>
+     <%= f.input :subject  %>
+    <%= f.text_area :body, :class => "tinymce", :rows => 15, :cols => 35%>
+
+    <button type="submit" class="btn btn-primary">Valider</button>
+    <% end %>
