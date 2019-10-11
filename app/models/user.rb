@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers => [:google_oauth2]
   has_many :bookings
   has_one :request
+  has_many :messages
+
 
   after_create :set_able_to_book
 

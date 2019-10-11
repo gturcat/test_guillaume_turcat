@@ -18,7 +18,7 @@
             <li>Nom : <%= @request.name %></li>
             <li>Adresse email : <%= @request.email %></li>
             <li>Téléphone : <%=  @request.phone_number %></li>
-            <li>Bio : <%= @request.bio %></li>
+            <li>Bio : <%= raw @request.bio %></li>
             <% if @request.ranking.present? %>
             <li>Rang sur liste d'attente : <%= @request.ranking   %></li>
             <li>Date de la requete : <%= @request.date_status %></li>

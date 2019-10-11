@@ -26,6 +26,10 @@
           <%= link_to "Réserver un bureau", desks_path, class: "nav-link" %>
         </li>
 
+        <li class="nav-item">
+          <%= link_to "Messagerie", new_message_path, class: "nav-link" %>
+        </li>
+
         <li class="nav-item dropdown">
           <div class="nav-link" data-toggle="dropdown"><%= current_user.email %></div>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">

@@ -15,10 +15,11 @@
      <%= f.input :email if !current_user.present?  %>
     <%= f.input :phone_number %>
     <%= f.text_area :bio, :class => "tinymce", :rows => 15, :cols => 35%>
+
     <button type="submit" class="btn btn-primary">Valider</button>
     <% end %>
 
   </div>
 </div>
 </div>
-<script type="text/javascript" src="/assets/tinymce.js">
+
