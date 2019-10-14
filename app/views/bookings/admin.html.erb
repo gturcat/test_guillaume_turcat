@@ -40,3 +40,21 @@
   </div>
 </div>
 <% end %>
+
+
+<div class="container chart">
+  <figure>
+  <figcaption>Nombre de jour disponibles par mois par bureau</figcaption>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="chart" width="420" height="150" aria-labelledby="title" role="img">
+  <title id="title">Nombre de jour libre dans le mois</title>
+  <% @desks_chart.each_with_index do |desk, index|  %>
+  <g class="bar" transform="translate(0,<%= index*20 + 9  %>)">
+    <text  dy=".35em"><%=desk.color  %></text>
+    <rect width="<%=desk.freedays * 10 %>" height="19" x="60" transform="translate(0,<%= -9  %>)"></rect>
+    <text x="<%= desk.freedays * 10 + 5 + 60 %>" dy=".35em"><%=desk.freedays  %></text>
+  </g>
+  <% end %>
+</svg>
+</figure>
+</div>
+

@@ -1,8 +1,17 @@
-<h4>Nouvel email</h4>
-    <%= simple_form_for @message do |f| %>
-    <%= f.input :to %>
-     <%= f.input :subject  %>
-    <%= f.text_area :body, :class => "tinymce", :rows => 15, :cols => 35%>
+<div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-2" >
+        <%= svg 'rejon_Ant_Icon'%>
+      </div>
+      <div class="col-12 col-lg-10">
+        <h4>Nouvel email</h4>
+        <%= simple_form_for @message do |f| %>
+        <%= f.input :to %>
+        <%= f.input :subject  %>
+        <%= f.text_area :body, :class => "tinymce", :rows => 15%>
+        <button type="submit" class="btn btn-primary">Valider</button>
+        <% end %>
+      </div>
+    </div>
+</div>
 
-    <button type="submit" class="btn btn-primary">Valider</button>
-    <% end %>
