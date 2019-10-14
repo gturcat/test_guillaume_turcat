@@ -10,6 +10,7 @@ import { calendarBooking } from 'packs/components/calendar_booking';
 import { calendarMyReservation } from 'packs/components/calendar_booking_my_reservations';
 
 import { initMapbox } from 'plugins/init_mapbox';
+import { initMap } from 'plugins/init_google_map';
 import { initAutocomplete } from 'plugins/init_autocomplete';
 import { resetFilter } from 'plugins/init_autocomplete';
 
@@ -33,7 +34,10 @@ if (document.getElementById("bookings_admin")) {
 
 if (document.getElementById("desks_index")) {
   calendarFilterDesk();
-  initMapbox();
+  // uncomment to work with mapbox
+  // initMapbox();
+  // uncomment to work with google map
+  initMap();
   var resetBtn = document.getElementById('reset-btn');
   resetBtn.addEventListener("click", (event) => {
     document.getElementById('search_start_date').value = "";
