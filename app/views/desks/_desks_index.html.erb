@@ -2,7 +2,7 @@
 <div class="row">
   <div class="col-12 col-lg-4" style="padding-top: 0px">
 <div id="calendar"></div>
-<%= simple_form_for :search, url: desks_path, method: "GET" do |f| %>
+<%= simple_form_for :search, url: desks_path, method: "GET", remote: true do |f| %>
   <%= f.input :start_date, as: :date, html5: true, as: :hidden%>
   <%= f.input :end_date, as: :date, html5: true, as: :hidden%>
   <%= f.input :query, label: "Nom du bureau" %>
