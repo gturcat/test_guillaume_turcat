@@ -39,7 +39,7 @@ class DesksController < ApplicationController
       @desks = policy_scope(Desk).desk_to_keep(search_start_date, search_end_sate)
       @desks = @desks.near(search_address, 10) if params[:search][:address] != ""
       @desks = @desks.select(Arel.star).where(Desk.arel_table[:name].eq(search_name)) if params[:search][:query] != ""
-      @desks = @desks.select(:id, :color, :freedays).joins(:prestations)
+      @desks = @desks.select(:id, :color, :freedays, :latitude, :longitude).joins(:prestations)
           .group(:id)
           .merge(Prestation.where(scope))
           .having(Price.arel_table[:desk_id]
@@ -61,6 +61,7 @@ class DesksController < ApplicationController
     end
 
     # geocoded
+
     @desks = @desks.geocoded
     @markers = @desks.map do |desk|
       {
