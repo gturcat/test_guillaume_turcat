@@ -55,7 +55,7 @@ class BookingTest < ActiveSupport::TestCase
   test 'valid freedays' do
     @booking.desk = @desk2
     @booking.send(:calculate_freedays_to_concerned_desk)
-    assert_equal(21, @booking.desk.freedays )
+    assert_equal(28, @booking.desk.freedays )
   end
 
 end
