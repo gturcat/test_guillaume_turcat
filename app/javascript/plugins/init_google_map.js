@@ -7,20 +7,24 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds);
 };
 
+const addMarkers = (map) => {
+  const mapElement = document.getElementById('map');
+  const markers = JSON.parse(mapElement.dataset.markers);
+  markers.forEach((marker) => {
+  new google.maps.Marker({position: marker, map: map});
+  });
+  fitMapToMarkers(map, markers);
+}
+
 function initMaping() {
   // The location of Aix en provence
   var aix = {lat: 43.5, lng: 5.5};
-  const mapElement = document.getElementById('map');
-  const markers = JSON.parse(mapElement.dataset.markers);
   // The map,
   var map = new google.maps.Map(
       document.getElementById('map'), {zoom: 10, center: aix});
   // The marker, positioned at france
+  addMarkers(map);
 
-  markers.forEach((marker) => {
-    new google.maps.Marker({position: marker, map: map});
-  });
-fitMapToMarkers(map, markers);
 }
 
 export { initMaping };
