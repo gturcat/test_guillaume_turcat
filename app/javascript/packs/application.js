@@ -11,7 +11,7 @@ import { calendarMyReservation } from 'packs/components/calendar_booking_my_rese
 
 import { initMapbox } from 'plugins/init_mapbox';
 import { initMaping } from 'plugins/init_google_map';
-import { initAutocomplete } from 'plugins/init_autocomplete';
+import { initAutocomplete, initAutocomplete_search } from 'plugins/init_autocomplete';
 import { resetFilter } from 'plugins/init_autocomplete';
 
 if (document.getElementById("calendar_desk")) {
@@ -38,6 +38,7 @@ if (document.getElementById("desks_index")) {
   // initMapbox();
   // uncomment to work with google map
   initMaping();
+  initAutocomplete_search();
   var resetBtn = document.getElementById('reset-btn');
   resetBtn.addEventListener("click", (event) => {
     document.getElementById('search_start_date').value = "";

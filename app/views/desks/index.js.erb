@@ -3,7 +3,23 @@ function refreshlist(reviewHTML) {
   const newlist = document.getElementById('list-of-desks');
   newlist.innerText =''
   newlist.insertAdjacentHTML('beforeend', reviewHTML);
-
 }
 
+function refreshMap() {
+   var aix = {lat: 43.5, lng: 5.5};
+  // The map,
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 10, center: aix});
+  // The marker, positioned at franc
+  const mapElement = document.getElementById('map');
+  mapElement.dataset.markers = "<%= @markers.to_json %>"
+  const markers = JSON.parse(mapElement.dataset.markers.replace(/&quot;/g,'"'));
+  markers.forEach((marker) => {
+  new google.maps.Marker({position: marker, map: map});
+  });
+  var map = document.getElementById('map');
+}
+
+
 refreshlist('<%= j render "desks/list_of_desks", desks: @desks_with_remplissage %>');
+refreshMap()

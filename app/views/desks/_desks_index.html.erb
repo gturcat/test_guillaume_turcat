@@ -6,6 +6,7 @@
   <%= f.input :start_date, as: :date, html5: true, as: :hidden%>
   <%= f.input :end_date, as: :date, html5: true, as: :hidden%>
   <%= f.input :query, label: "Nom du bureau" %>
+  <%= f.input :address, label: "rechercher à proximité" %>
   <%= f.input :prestations, label: "Prestations", collection: @prestations, as: :check_boxes %>
   <%= f.submit "Search", class: "btn btn-primary" %>
   <%= link_to "Reset", desks_path, id: "reset-btn",  remote: true  %>
@@ -18,13 +19,8 @@
 </div>
 
 
+ <%= render 'map'  %>
 
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 
 
