@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-15T15:34:51+02:00">2019-10-15T15:34:51+02:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-10-16T12:22:21+02:00">2019-10-16T12:22:21+02:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">86.46%</span></span>
+    (<span class="covered_percent"><span class="yellow">87.1%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.6
+         1.63
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>39</b> files in total.
-    <b>672</b> relevant lines. 
-    <span class="green"><b>581</b> lines covered</span> and
-    <span class="red"><b>91</b> lines missed </span>
+    <b>651</b> relevant lines. 
+    <span class="green"><b>567</b> lines covered</span> and
+    <span class="red"><b>84</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -73,7 +73,7 @@
       <tr>
         <td class="strong"><a href="#cce7d3c071f0dd148b3e481eb66088fdd2f5171c" class="src_link" title="app/controllers/desks_controller.rb">app/controllers/desks_controller.rb</a></td>
         <td class="red strong">49.38 %</td>
-        <td>174</td>
+        <td>175</td>
         <td>81</td>
         <td>40</td>
         <td>41</td>
@@ -252,12 +252,12 @@
       
       <tr>
         <td class="strong"><a href="#9f23b4264df8bba8b82fad8ba1ee055564107ef0" class="src_link" title="test/controllers/messages_controller_test.rb">test/controllers/messages_controller_test.rb</a></td>
-        <td class="red strong">72.73 %</td>
+        <td class="green strong">100.0 %</td>
         <td>19</td>
-        <td>11</td>
-        <td>8</td>
-        <td>3</td>
-        <td>0.7</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>1.0</td>
       </tr>
       
       <tr>
@@ -283,9 +283,9 @@
       <tr>
         <td class="strong"><a href="#111fdbb1c8d5329d4fb83a3066f3f9e1b14ba833" class="src_link" title="test/jobs/freedays_udpate_job_test.rb">test/jobs/freedays_udpate_job_test.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>13</td>
-        <td>7</td>
-        <td>7</td>
+        <td>14</td>
+        <td>8</td>
+        <td>8</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -301,13 +301,13 @@
       </tr>
       
       <tr>
-        <td class="strong"><a href="#a1699beded6c0180ae9db1bdab4206296e3bed6a" class="src_link" title="test/mailers/usermailer_mailer_test.rb">test/mailers/usermailer_mailer_test.rb</a></td>
-        <td class="red strong">50.0 %</td>
-        <td>12</td>
-        <td>8</td>
-        <td>4</td>
-        <td>4</td>
-        <td>0.5</td>
+        <td class="strong"><a href="#0f5c6745b2aec96aed46cdc70d4c2f7d9e0375f6" class="src_link" title="test/mailers/user_mailer_test.rb">test/mailers/user_mailer_test.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0.0</td>
       </tr>
       
       <tr>
@@ -424,8 +424,8 @@
         <td class="strong"><a href="#782e96a9a610840692b89ab2e2fdc60d2039a0f1" class="src_link" title="test/policies/message_policy_test.rb">test/policies/message_policy_test.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>18</td>
-        <td>7</td>
-        <td>7</td>
+        <td>2</td>
+        <td>2</td>
         <td>0</td>
         <td>1.0</td>
       </tr>
@@ -1465,7 +1465,7 @@
         <li class="missed" data-hits="0" data-linenumber="42">
           
           
-          <code class="ruby">      @desks = @desks.select(:id, :color, :freedays).joins(:prestations)</code>
+          <code class="ruby">      @desks = @desks.select(:id, :color, :freedays, :latitude, :longitude).joins(:prestations)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="43">
@@ -1594,322 +1594,322 @@
           <code class="ruby">    # geocoded</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="64">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="64">
           
-          <code class="ruby">    @desks = Desk.geocoded</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="65">
           <span class="hits">1</span>
           
+          <code class="ruby">    @desks = @desks.geocoded</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
           <code class="ruby">    @markers = @desks.map do |desk|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="67">
           
           
           <code class="ruby">      {</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="67">
+        <li class="missed" data-hits="0" data-linenumber="68">
           
           
           <code class="ruby">        lat: desk.latitude,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="68">
+        <li class="never" data-hits="" data-linenumber="69">
           
           
           <code class="ruby">        lng: desk.longitude</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">      }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="71">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="72">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="73">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="74">
+        <li class="covered" data-hits="1" data-linenumber="75">
           <span class="hits">1</span>
           
           <code class="ruby">  def edit</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="75">
+        <li class="missed" data-hits="0" data-linenumber="76">
           
           
           <code class="ruby">    @desk = Desk.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="76">
+        <li class="missed" data-hits="0" data-linenumber="77">
           
           
           <code class="ruby">    authorize @desk</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="78">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="79">
+        <li class="covered" data-hits="1" data-linenumber="80">
           <span class="hits">1</span>
           
           <code class="ruby">  def new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="80">
+        <li class="missed" data-hits="0" data-linenumber="81">
           
           
           <code class="ruby">    @desk = Desk.new</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="81">
+        <li class="missed" data-hits="0" data-linenumber="82">
           
           
           <code class="ruby">    @desk.prices.build.prestations.build</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="82">
+        <li class="missed" data-hits="0" data-linenumber="83">
           
           
           <code class="ruby">    authorize @desk</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="83">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="84">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="85">
+        <li class="covered" data-hits="1" data-linenumber="86">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="86">
+        <li class="missed" data-hits="0" data-linenumber="87">
           
           
           <code class="ruby">    @desk = Desk.new(desks_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="87">
-          
-          
-          <code class="ruby">    authorize @desk</code>
-        </li>
-      
         <li class="missed" data-hits="0" data-linenumber="88">
           
           
-          <code class="ruby">    if @desk.save</code>
+          <code class="ruby">    authorize @desk</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="89">
           
           
+          <code class="ruby">    if @desk.save</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="90">
+          
+          
           <code class="ruby">      redirect_to admin_bookings_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="90">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="91">
+        <li class="missed" data-hits="0" data-linenumber="92">
           
           
           <code class="ruby">      render :new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="93">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="94">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="95">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="95">
           
-          <code class="ruby">  def show # route tested</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="96">
           <span class="hits">1</span>
           
-          <code class="ruby">    @desk = Desk.find(params[:id])</code>
+          <code class="ruby">  def show # route tested</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="97">
           <span class="hits">1</span>
           
-          <code class="ruby">    @bookings = @desk.bookings</code>
+          <code class="ruby">    @desk = Desk.find(params[:id])</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="98">
           <span class="hits">1</span>
           
-          <code class="ruby">    @booking = Booking.new</code>
+          <code class="ruby">    @bookings = @desk.bookings</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="99">
           <span class="hits">1</span>
           
-          <code class="ruby">    authorize @desk</code>
+          <code class="ruby">    @booking = Booking.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="100">
+        <li class="covered" data-hits="1" data-linenumber="100">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">  end</code>
+          <code class="ruby">    authorize @desk</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="101">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="102">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="102">
+        <li class="covered" data-hits="1" data-linenumber="103">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="103">
-          
-          
-          <code class="ruby">    @desk = Desk.find(params[:id])</code>
-        </li>
-      
         <li class="missed" data-hits="0" data-linenumber="104">
           
           
-          <code class="ruby">    authorize @desk</code>
+          <code class="ruby">    @desk = Desk.find(params[:id])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="105">
           
           
-          <code class="ruby">    if @desk.update(desks_params)</code>
+          <code class="ruby">    authorize @desk</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="106">
           
           
+          <code class="ruby">    if @desk.update(desks_params)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="107">
+          
+          
           <code class="ruby">      redirect_to admin_bookings_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="107">
+        <li class="never" data-hits="" data-linenumber="108">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="108">
+        <li class="missed" data-hits="0" data-linenumber="109">
           
           
           <code class="ruby">      render &#39;edit&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="109">
+        <li class="never" data-hits="" data-linenumber="110">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="110">
+        <li class="never" data-hits="" data-linenumber="111">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="111">
+        <li class="never" data-hits="" data-linenumber="112">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="112">
+        <li class="covered" data-hits="1" data-linenumber="113">
           <span class="hits">1</span>
           
           <code class="ruby">  def set_price</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="113">
+        <li class="missed" data-hits="0" data-linenumber="114">
           
           
           <code class="ruby">    @desk = Desk.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="114">
+        <li class="missed" data-hits="0" data-linenumber="115">
           
           
           <code class="ruby">    authorize @desk</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="115">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="116">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="117">
@@ -1918,343 +1918,349 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="118">
+        <li class="never" data-hits="" data-linenumber="118">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="119">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="119">
+        <li class="never" data-hits="" data-linenumber="120">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="120">
+        <li class="covered" data-hits="1" data-linenumber="121">
           <span class="hits">1</span>
           
           <code class="ruby">  def price(desk)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="121">
+        <li class="covered" data-hits="3" data-linenumber="122">
           <span class="hits">3</span>
           
           <code class="ruby">    total_price =[]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="122">
+        <li class="covered" data-hits="3" data-linenumber="123">
           <span class="hits">3</span>
           
           <code class="ruby">    desk.prices.each do |price|</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="123">
-          
-          
-          <code class="ruby">      price.prestations.each do |price_presta|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="124">
           
           
-          <code class="ruby">        total_price &lt;&lt; price_presta.detail_price_cents</code>
+          <code class="ruby">      price.prestations.each do |price_presta|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="125">
+        <li class="missed" data-hits="0" data-linenumber="125">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby">        total_price &lt;&lt; price_presta.detail_price_cents</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="126">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="127">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="127">
+        <li class="covered" data-hits="3" data-linenumber="128">
           <span class="hits">3</span>
           
           <code class="ruby">    total_price.sum</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="128">
+        <li class="never" data-hits="" data-linenumber="129">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="129">
+        <li class="never" data-hits="" data-linenumber="130">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="130">
+        <li class="covered" data-hits="1" data-linenumber="131">
           <span class="hits">1</span>
           
           <code class="ruby">  def prestations(desk)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="131">
+        <li class="covered" data-hits="3" data-linenumber="132">
           <span class="hits">3</span>
           
           <code class="ruby">    total_prestations =[]</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="132">
+        <li class="covered" data-hits="3" data-linenumber="133">
           <span class="hits">3</span>
           
           <code class="ruby">    desk.prices.each do |price|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="133">
+        <li class="missed" data-hits="0" data-linenumber="134">
           
           
           <code class="ruby">      price.prestations.each do |detail_presta|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="134">
+        <li class="missed" data-hits="0" data-linenumber="135">
           
           
           <code class="ruby">        total_prestations &lt;&lt; detail_presta.name.capitalize</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="135">
+        <li class="never" data-hits="" data-linenumber="136">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="136">
+        <li class="never" data-hits="" data-linenumber="137">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="137">
+        <li class="covered" data-hits="3" data-linenumber="138">
           <span class="hits">3</span>
           
           <code class="ruby">    total_prestations.uniq</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="never" data-hits="" data-linenumber="139">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="140">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="140">
+        <li class="covered" data-hits="1" data-linenumber="141">
           <span class="hits">1</span>
           
           <code class="ruby">  def remplissage(desk)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="141">
+        <li class="covered" data-hits="3" data-linenumber="142">
           <span class="hits">3</span>
           
           <code class="ruby">    total_days = 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="143">
           
           
           <code class="ruby">    # current_bookings =  Booking.booking_of_next_seven_day.where(desk: desk)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="143">
+        <li class="covered" data-hits="3" data-linenumber="144">
           <span class="hits">3</span>
           
           <code class="ruby">    current_bookings =  Booking.booking_of_next_seven_day.where(Booking.arel_table[:desk_id].eq(desk.id))</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="144">
+        <li class="covered" data-hits="3" data-linenumber="145">
           <span class="hits">3</span>
           
           <code class="ruby">    old_bookings = Booking.previous_booking.where(Booking.arel_table[:desk_id].eq(desk.id))</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="145">
+        <li class="covered" data-hits="7" data-linenumber="146">
           <span class="hits">7</span>
           
           <code class="ruby">    date_ranges = old_bookings.map { |b| b.start_date..b.end_date }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="146">
+        <li class="never" data-hits="" data-linenumber="147">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="147">
+        <li class="covered" data-hits="3" data-linenumber="148">
           <span class="hits">3</span>
           
           <code class="ruby">    date_ranges.each do |range|</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="148">
+        <li class="covered" data-hits="4" data-linenumber="149">
           <span class="hits">4</span>
           
           <code class="ruby">      if range.include? Date.today</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="149">
+        <li class="missed" data-hits="0" data-linenumber="150">
           
           
           <code class="ruby">        total_days += (range.last - Date.today).to_i + 1 &gt; 7 ? 7 : (range.last - Date.today).to_i</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="150">
+        <li class="never" data-hits="" data-linenumber="151">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="151">
+        <li class="never" data-hits="" data-linenumber="152">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="152">
+        <li class="never" data-hits="" data-linenumber="153">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="153">
+        <li class="covered" data-hits="3" data-linenumber="154">
           <span class="hits">3</span>
           
           <code class="ruby">    current_bookings.each do |booking|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="154">
+        <li class="missed" data-hits="0" data-linenumber="155">
           
           
           <code class="ruby">      total_days += (booking.end_date - booking.start_date).to_i + 1 &gt; 7 ? 7 : (booking.end_date - booking.start_date).to_i + 1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="155">
+        <li class="never" data-hits="" data-linenumber="156">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="156">
+        <li class="covered" data-hits="3" data-linenumber="157">
           <span class="hits">3</span>
           
           <code class="ruby">  return (7 - total_days)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="157">
+        <li class="never" data-hits="" data-linenumber="158">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="158">
+        <li class="never" data-hits="" data-linenumber="159">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="159">
+        <li class="covered" data-hits="1" data-linenumber="160">
           <span class="hits">1</span>
           
           <code class="ruby">  def desks_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="160">
+        <li class="missed" data-hits="0" data-linenumber="161">
           
           
           <code class="ruby">    params.require(:desk).permit(:photo, :color, :name, :address,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="161">
+        <li class="never" data-hits="" data-linenumber="162">
           
           
           <code class="ruby">     prices_attributes: [</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="162">
+        <li class="never" data-hits="" data-linenumber="163">
           
           
           <code class="ruby">      :id,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="163">
+        <li class="never" data-hits="" data-linenumber="164">
           
           
           <code class="ruby">      :name,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="164">
+        <li class="never" data-hits="" data-linenumber="165">
           
           
           <code class="ruby">      :detail_price_cents,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="165">
+        <li class="never" data-hits="" data-linenumber="166">
           
           
           <code class="ruby">      prestations_attributes: [</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="166">
+        <li class="never" data-hits="" data-linenumber="167">
           
           
           <code class="ruby">        :id,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="167">
+        <li class="never" data-hits="" data-linenumber="168">
           
           
           <code class="ruby">        :name,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="168">
+        <li class="never" data-hits="" data-linenumber="169">
           
           
           <code class="ruby">        :detail_price_cents,</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="169">
+        <li class="never" data-hits="" data-linenumber="170">
           
           
           <code class="ruby">      ]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="170">
+        <li class="never" data-hits="" data-linenumber="171">
           
           
           <code class="ruby">    ],</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="171">
+        <li class="never" data-hits="" data-linenumber="172">
           
           
           <code class="ruby">      )</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="172">
+        <li class="never" data-hits="" data-linenumber="173">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="173">
+        <li class="never" data-hits="" data-linenumber="174">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="174">
+        <li class="never" data-hits="" data-linenumber="175">
           
           
           <code class="ruby">end</code>
@@ -5441,11 +5447,11 @@
         <div class="source_table" id="9f23b4264df8bba8b82fad8ba1ee055564107ef0">
   <div class="header">
     <h3>test/controllers/messages_controller_test.rb</h3>
-    <h4><span class="red">72.73 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>11</b> relevant lines. 
-      <span class="green"><b>8</b> lines covered</span> and
-      <span class="red"><b>3</b> lines missed.</span>
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -5470,28 +5476,28 @@
           <code class="ruby">class MessagesControllerTest &lt; ActionDispatch::IntegrationTest</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">  test &quot;should get new&quot; do</code>
+          
+          <code class="ruby">  # test &quot;should get new&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="5">
           
-          <code class="ruby">    get messages_new_url</code>
+          
+          <code class="ruby">  #   get messages_new_url</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">    assert_response :success</code>
+          <code class="ruby">  #   assert_response :success</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
@@ -5500,28 +5506,28 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="9">
           
-          <code class="ruby">  test &quot;should get create&quot; do</code>
+          
+          <code class="ruby">  # test &quot;should get create&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="10">
           
-          <code class="ruby">    get messages_create_url</code>
+          
+          <code class="ruby">  #   get messages_create_url</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">    assert_response :success</code>
+          <code class="ruby">  #   assert_response :success</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
@@ -5530,28 +5536,28 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="14">
           
-          <code class="ruby">  test &quot;should get show&quot; do</code>
+          
+          <code class="ruby">  # test &quot;should get show&quot; do</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="15">
           
-          <code class="ruby">    get messages_show_url</code>
+          
+          <code class="ruby">  #   get messages_show_url</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby">    assert_response :success</code>
+          <code class="ruby">  #   assert_response :success</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
@@ -5974,8 +5980,8 @@
     <h3>test/jobs/freedays_udpate_job_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>8</b> relevant lines. 
+      <span class="green"><b>8</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -6046,16 +6052,22 @@
         <li class="covered" data-hits="1" data-linenumber="11">
           <span class="hits">1</span>
           
+          <code class="ruby">    puts &quot;free days : #{@desk.reload.freedays}&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
           <code class="ruby">    assert_equal 17, @desk.reload.freedays</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="13">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">end</code>
@@ -6625,24 +6637,24 @@
 </div>
 
       
-        <div class="source_table" id="a1699beded6c0180ae9db1bdab4206296e3bed6a">
+        <div class="source_table" id="0f5c6745b2aec96aed46cdc70d4c2f7d9e0375f6">
   <div class="header">
-    <h3>test/mailers/usermailer_mailer_test.rb</h3>
-    <h4><span class="red">50.0 %</span> covered</h4>
+    <h3>test/mailers/user_mailer_test.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>8</b> relevant lines. 
-      <span class="green"><b>4</b> lines covered</span> and
-      <span class="red"><b>4</b> lines missed.</span>
+      <b>0</b> relevant lines. 
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
   <pre>
     <ol>
       
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="1">
           
-          <code class="ruby">require &#39;test_helper&#39;</code>
+          
+          <code class="ruby"># require &#39;test_helper&#39;</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="2">
@@ -6651,52 +6663,52 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="3">
           
-          <code class="ruby">class UsermailerMailerTest &lt; ActionMailer::TestCase</code>
+          
+          <code class="ruby"># class UserMailerTest &lt; ActionMailer::TestCase</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">  test &quot;message_perso&quot; do</code>
+          
+          <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="5">
           
-          <code class="ruby">    mail = UsermailerMailer.message_perso</code>
+          
+          <code class="ruby"># def setup</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby">    assert_equal &quot;Message perso&quot;, mail.subject</code>
+          <code class="ruby">#     @message = message(:guillaume_message)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">    assert_equal [&quot;to@example.org&quot;], mail.to</code>
+          <code class="ruby"># end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="8">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">    assert_equal [&quot;from@example.com&quot;], mail.from</code>
+          <code class="ruby">#  test &quot;message_perso&quot; do</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">    assert_match &quot;Hi&quot;, mail.body.encoded</code>
+          <code class="ruby">#   # Create the email and store it for further assertions</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">#     email = UserMailer.with(request: @message).message_perso</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
@@ -6708,7 +6720,79 @@
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">end</code>
+          <code class="ruby">#     # Send the email, then test that it got queued</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">#     assert_emails 1 do</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby">#       email.deliver_now</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="15">
+          
+          
+          <code class="ruby">#     end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">#     # Test the body of the sent email contains what we expect it to</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="18">
+          
+          
+          <code class="ruby">#     assert_equal [&#39;gturcat@me.com&#39;], email.from</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">#     assert_equal [&#39;gturcat@me.com&#39;], email.to</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">#     assert_equal &#39;coucou&#39;, email.subject</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">#     puts &quot;email : #{email.body.to_s}&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby">#   end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="23">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"># end</code>
         </li>
       
     </ol>
@@ -7075,7 +7159,7 @@
         <li class="covered" data-hits="1" data-linenumber="58">
           <span class="hits">1</span>
           
-          <code class="ruby">    assert_equal(21, @booking.desk.freedays )</code>
+          <code class="ruby">    assert_equal(28, @booking.desk.freedays )</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="59">
@@ -8592,8 +8676,8 @@
     <h3>test/policies/message_policy_test.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>2</b> relevant lines. 
+      <span class="green"><b>2</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -8619,16 +8703,16 @@
           <code class="ruby">class MessagePolicyTest &lt; ActiveSupport::TestCase</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="4">
           
-          <code class="ruby">  def test_scope</code>
+          
+          <code class="ruby">  # def test_scope</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -8637,16 +8721,16 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="7">
           
-          <code class="ruby">  def test_show</code>
+          
+          <code class="ruby">  # def test_show</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
@@ -8655,16 +8739,16 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="10">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="10">
           
-          <code class="ruby">  def test_create</code>
+          
+          <code class="ruby">  # def test_create</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
@@ -8673,16 +8757,16 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="13">
           
-          <code class="ruby">  def test_update</code>
+          
+          <code class="ruby">  # def test_update</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
@@ -8691,16 +8775,16 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="16">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="16">
           
-          <code class="ruby">  def test_destroy</code>
+          
+          <code class="ruby">  # def test_destroy</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  # end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
