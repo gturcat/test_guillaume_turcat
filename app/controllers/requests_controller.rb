@@ -29,6 +29,7 @@ class RequestsController < ApplicationController
   def confirmation #tested
     @request = Request.find(params[:id])
     @request.confirmed!
+    RequestBroadcastJob.perform_now
     redirect_to request_path(@request)
     skip_authorization
   end

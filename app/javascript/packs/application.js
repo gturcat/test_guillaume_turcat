@@ -14,6 +14,12 @@ import { initMaping } from 'plugins/init_google_map';
 import { initAutocomplete, initAutocomplete_search } from 'plugins/init_autocomplete';
 import { resetFilter } from 'plugins/init_autocomplete';
 
+import { requestChannel } from 'channels/request';
+
+if (document.getElementById("admin").dataset.admin){
+  requestChannel();
+}
+
 if (document.getElementById("calendar_desk")) {
   calendarDesk();
 };
