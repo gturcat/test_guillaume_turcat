@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'requests#new'
   get 'shared/header'
 
+  #notification de request
+  mount ActionCable.server, at: '/cable'
+
   #Sidekiq Web UI, only for admins.
   require "sidekiq/web"
   require "sidekiq/cron/web"

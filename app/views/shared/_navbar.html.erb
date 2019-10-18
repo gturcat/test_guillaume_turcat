@@ -31,7 +31,11 @@
         </li>
 
         <li class="nav-item dropdown">
-          <div class="nav-link" data-toggle="dropdown"><%= current_user.email %></div>
+          <% if current_user.admin?%>
+          <%= render 'shared/admin_notif'  %>
+          <% else %>
+          <div class="nav-link" id="admin" data-toggle="dropdown" data-admin="<%=current_user.admin%>"><%= current_user.email %></div>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
